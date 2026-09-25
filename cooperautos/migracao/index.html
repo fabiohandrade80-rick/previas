@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Migre sua proteção veicular para a Cooperautos</title>
+  <meta name="description" content="Já tem proteção veicular? Migre para a Cooperautos e ganhe saúde grátis para você: telemedicina 24h, +14 especialidades, psicólogo e nutricionista, descontos em exames e medicamentos.">
+  <meta property="og:title" content="Traga sua proteção veicular para a Cooperautos">
+  <meta property="og:description" content="Mesma proteção para o seu carro e, de quebra, saúde para você e sua família.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0036b2;
+      --blue-deep: #0b2a78;
+      --blue-soft: #eef3ff;
+      --lime: #c2f05c;
+      --lime-dark: #8fc21f;
+      --ink: #0e1b3d;
+      --muted: #5a6685;
+      --line: #e2e8f5;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Poppins", system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 .5em; font-weight: 700; letter-spacing: -.02em; }
+    h1 { font-size: clamp(1.9rem, 4.6vw, 3.2rem); }
+    h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
+    h3 { font-size: 1.1rem; }
+    p { margin: 0 0 1em; }
+    a { color: inherit; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .hl { color: var(--lime); }
+    .hl-blue { color: var(--blue); }
+
+    /* Logo */
+    .logo { font-family: "Nunito", sans-serif; font-weight: 800; font-size: 1.7rem; letter-spacing: -.02em; text-decoration: none; color: #fff; }
+    .logo span { color: var(--lime); }
+    .logo.dark { color: var(--blue); }
+    .logo.dark span { color: var(--lime-dark); }
+
+    /* Botões */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 30px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 0; font: inherit; font-weight: 700; cursor: pointer; transition: transform .15s, box-shadow .15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-lime { background: var(--lime); color: var(--blue-deep); box-shadow: 0 10px 30px rgba(194, 240, 92, .35); }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-ghost { color: #fff; border: 2px solid rgba(255,255,255,.4); background: transparent; }
+
+    /* Topo + vídeo */
+    .top { background: var(--blue); color: #fff; position: relative; overflow: hidden; padding-bottom: 80px; }
+    .top::before, .top::after { content: ""; position: absolute; border-radius: 50%; background: var(--lime); }
+    .top::before { width: 220px; height: 220px; right: -130px; top: -140px; }
+    .top::after { width: 180px; height: 180px; left: -100px; bottom: -60px; }
+    .cross { position: absolute; right: 7%; top: 120px; width: 70px; height: 70px; opacity: .5; }
+    .top header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; position: relative; z-index: 2; }
+    .top header a.tel { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .9; }
+    .intro { text-align: center; max-width: 820px; margin: 24px auto 34px; position: relative; z-index: 2; }
+    .pill { display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); padding: 6px 16px; border-radius: 999px; font-size: .82rem; font-weight: 600; margin-bottom: 18px; }
+    .intro p { font-size: 1.12rem; opacity: .9; margin: 0; }
+
+    .video {
+      position: relative; z-index: 2; max-width: 920px; margin: 0 auto; aspect-ratio: 16 / 9;
+      border-radius: var(--radius); overflow: hidden; background: var(--blue-deep);
+      box-shadow: 0 30px 70px rgba(0, 10, 50, .45); border: 4px solid rgba(255,255,255,.15);
+    }
+    .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-placeholder {
+      position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 20px;
+      background: radial-gradient(600px 300px at 70% 20%, rgba(194,240,92,.18), transparent 60%), linear-gradient(160deg, #0b2a78, #001d66);
+    }
+    .play { width: 92px; height: 92px; border-radius: 50%; background: var(--lime); display: grid; place-items: center; box-shadow: 0 0 0 14px rgba(194,240,92,.2); }
+    .play::after { content: ""; border-style: solid; border-width: 16px 0 16px 26px; border-color: transparent transparent transparent var(--blue-deep); margin-left: 6px; }
+    .video-placeholder b { font-size: 1.2rem; }
+    .video-placeholder small { opacity: .7; }
+
+    .top-ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 34px; position: relative; z-index: 2; }
+    .trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; font-size: .9rem; opacity: .85; position: relative; z-index: 2; }
+    .trust span::before { content: "✓ "; color: var(--lime); font-weight: 800; }
+
+    section { padding: 88px 0; }
+    .head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+    .kicker { display: inline-block; color: var(--blue); background: var(--blue-soft); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; padding: 6px 14px; border-radius: 999px; margin-bottom: 14px; }
+    .head p { color: var(--muted); font-size: 1.05rem; }
+
+    /* Comparativo */
+    .compare { max-width: 860px; margin: 0 auto; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 50px rgba(0, 54, 178, .08); }
+    .compare .row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center; border-bottom: 1px solid var(--line); }
+    .compare .row:last-child { border-bottom: 0; }
+    .compare .row > div { padding: 16px 20px; }
+    .compare .row > div:nth-child(2), .compare .row > div:nth-child(3) { text-align: center; }
+    .compare .row > div:nth-child(3) { background: var(--blue-soft); font-weight: 700; }
+    .compare .th { font-weight: 700; font-size: .95rem; }
+    .compare .th > div:nth-child(3) { background: var(--blue); color: #fff; }
+    .yes { color: var(--blue); font-weight: 800; }
+    .no { color: #b8c0d4; font-weight: 800; }
+
+    /* Passos */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; position: relative; }
+    .step .n { width: 46px; height: 46px; border-radius: 14px; background: var(--lime); color: var(--blue-deep); font-weight: 800; display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 16px; }
+    .step p { color: var(--muted); margin: 0; font-size: .95rem; }
+    .soft { background: var(--blue-soft); }
+
+    /* Saúde */
+    .health { background: var(--blue); color: #fff; position: relative; overflow: hidden; }
+    .health .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .spec { background: #fff; color: var(--ink); border-radius: var(--radius); padding: 30px 34px; columns: 2; column-gap: 28px; }
+    .spec div { break-inside: avoid; padding: 5px 0; font-weight: 500; }
+    .spec div::before { content: "✔"; color: #fff; background: var(--blue); border-radius: 50%; width: 18px; height: 18px; font-size: .7rem; display: inline-grid; place-items: center; margin-right: 10px; vertical-align: 2px; }
+    .big { background: var(--lime); color: var(--blue-deep); border-radius: var(--radius); padding: 26px 30px; margin-top: 22px; }
+    .big b { display: block; font-size: 3.4rem; line-height: 1; font-weight: 800; }
+    .big span { font-weight: 700; font-size: 1.2rem; }
+    .big p { margin: 8px 0 0; font-size: .95rem; }
+    .perks { list-style: none; padding: 0; margin: 20px 0 0; }
+    .perks li { padding: 8px 0; display: flex; gap: 10px; }
+    .perks li::before { content: "✓"; color: var(--lime); font-weight: 800; }
+
+    /* Planos */
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; }
+    .plan { border: 1px solid var(--line); border-radius: 18px; padding: 20px 16px; text-align: center; }
+    .plan h3 { margin: 0 0 4px; font-size: 1rem; color: var(--blue); }
+    .plan .price { font-size: 1.3rem; font-weight: 800; white-space: nowrap; }
+    .plan .price small { font-size: .8rem; font-weight: 500; color: var(--muted); }
+    .plan .fipe { font-size: .85rem; color: var(--muted); }
+    .note { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 20px; }
+
+    /* FAQ */
+    .faq { max-width: 800px; margin: 0 auto; }
+    details { border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; margin-bottom: 12px; background: #fff; }
+    summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 12px 0 0; color: var(--muted); }
+
+    /* Formulário */
+    .form-wrap { background: var(--blue); border-radius: 28px; padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; color: #fff; align-items: center; }
+    form { display: grid; gap: 12px; background: #fff; padding: 28px; border-radius: var(--radius); }
+    input, select { width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); font: inherit; color: var(--ink); background: #fff; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    form small { color: var(--muted); font-size: .78rem; }
+
+    footer { padding: 40px 0 110px; text-align: center; color: var(--muted); font-size: .85rem; }
+    footer .logo { font-size: 1.4rem; display: inline-block; margin-bottom: 10px; }
+
+    .sticky { display: none; }
+
+    @media (max-width: 900px) {
+      .steps { grid-template-columns: 1fr 1fr; }
+      .health .grid, .form-wrap { grid-template-columns: 1fr; }
+      .form-wrap { padding: 32px 20px; }
+    }
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .top header a.tel { display: none; }
+      .compare .row > div { padding: 12px 10px; font-size: .88rem; }
+      .spec { columns: 1; padding: 24px; }
+      .two { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+      .cross { display: none; }
+      .sticky { display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; text-align: center; }
+      .sticky .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 1. Topo com vídeo em destaque -->
+<div class="top">
+  <svg class="cross" viewBox="0 0 70 70" fill="none" stroke="#fff" stroke-width="3"><path d="M25 3h20v22h22v20H45v22H25V45H3V25h22z" stroke-linejoin="round"/></svg>
+  <div class="container">
+    <header>
+      <a class="logo" href="../">cooper<span>autos</span></a>
+      <a class="tel" href="tel:+551145095165">(11) 4509-5165</a>
+    </header>
+
+    <div class="intro">
+      <span class="pill">Para quem já tem proteção veicular</span>
+      <h1>Traga sua proteção para a Cooperautos e <span class="hl">ganhe saúde grátis</span> para você.</h1>
+      <p>Aperte o play e entenda em poucos minutos como funciona a migração e tudo o que você passa a ter.</p>
+    </div>
+
+    <!--
+      VÍDEO: troque o bloco .video-placeholder por um destes:
+      YouTube: <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO?rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      Arquivo:  <video src="../assets/video-migracao.mp4" poster="../assets/capa-video.jpg" controls playsinline></video>
+    -->
+    <div class="video" id="video">
+      <div class="video-placeholder">
+        <div class="play"></div>
+        <b>Como funciona a migração para a Cooperautos</b>
+        <small>Vídeo em produção</small>
+      </div>
+    </div>
+
+    <div class="top-ctas">
+      <a class="btn btn-lime" href="#migrar">Quero migrar minha proteção</a>
+      <a class="btn btn-ghost" href="#ganhos">Ver o que eu ganho</a>
+    </div>
+    <div class="trust">
+      <span>Cooperativa registrada na OCB</span>
+      <span>Assistência 24h</span>
+      <span>Saúde grátis para o associado</span>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Comparativo -->
+<section id="ganhos">
+  <div class="container">
+    <div class="head">
+      <span class="kicker">O que você ganha</span>
+      <h2>Mesma proteção para o carro. <span class="hl-blue">Saúde grátis para você.</span></h2>
+      <p>Compare o que uma proteção veicular comum oferece com o que você tem sendo associado Cooperautos. Os benefícios de saúde já estão incluídos, sem custo a mais para você.</p>
+    </div>
+    <div class="compare">
+      <div class="row th"><div>Benefício</div><div>Proteção comum</div><div>Cooperautos</div></div>
+      <div class="row"><div>Assistência 24h e guincho</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="row"><div>Colisão, terceiros e vidros</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="row"><div>Martelinho de ouro e higienização do A/C</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Telemedicina 24h (clínico e pediatra)</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>+14 especialidades médicas</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Psicólogo e nutricionista inclusos</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Descontos em exames e medicamentos</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Auxílio funeral</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Dependentes na saúde por valor especial</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="row"><div>Parte de uma cooperativa com sobras</div><div class="no">—</div><div class="yes">✓</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Como funciona a migração -->
+<section class="soft">
+  <div class="container">
+    <div class="head">
+      <span class="kicker">Como funciona</span>
+      <h2>Migrar é simples e você não fica descoberto</h2>
+      <p>A gente cuida da troca com você, do primeiro contato até a ativação.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Mande sua proteção atual</h3><p>Envie uma foto do boleto ou do contrato da proteção que você tem hoje.</p></div>
+      <div class="step"><div class="n">2</div><h3>Montamos seu plano</h3><p>Pelo valor FIPE do veículo, indicamos o plano equivalente ou melhor.</p></div>
+      <div class="step"><div class="n">3</div><h3>Ativamos a nova proteção</h3><p>Você só cancela a antiga depois que a Cooperautos estiver ativa.</p></div>
+      <div class="step"><div class="n">4</div><h3>Comece a usar a saúde</h3><p>Baixe o app e já tenha médico 24h no celular, sem pagar nada a mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Benefícios de saúde -->
+<section class="health">
+  <div class="container grid">
+    <div>
+      <h2>Especialidades <span class="hl">exclusivas</span> para os associados da <span class="hl">Cooperautos</span></h2>
+      <div class="big">
+        <b>+14</b>
+        <span>Especialidades</span>
+        <p>Além de psicólogo e nutricionista inclusos, com descontos em exames e medicamentos.</p>
+      </div>
+      <p style="margin-top:22px;font-size:1.15rem"><b class="hl">Grátis para o associado.</b> Quer incluir a família? Dependentes entram por um valor especial.</p>
+      <ul class="perks">
+        <li>Telemedicina 24h com clínico geral e pediatra</li>
+        <li>Consultas por vídeo, sem fila e sem sair de casa</li>
+        <li>Inclua seus dependentes por um valor especial</li>
+      </ul>
+    </div>
+    <div class="spec">
+      <div>Cardiologia</div><div>Dermatologia</div><div>Endocrinologia</div><div>Geriatria</div>
+      <div>Ginecologia</div><div>Neurologia</div><div>Nutrição</div><div>Ortopedia</div>
+      <div>Otorrinolaringologia</div><div>Pediatria</div><div>Psicologia</div><div>Psiquiatria</div>
+      <div>Traumatologia</div><div>Urologia</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Planos -->
+<section>
+  <div class="container">
+    <div class="head">
+      <span class="kicker">Planos</span>
+      <h2>Proteção a partir de <span class="hl-blue">R$ 49,99</span> por mês</h2>
+      <p>O plano é definido pelo valor FIPE do seu veículo.</p>
+    </div>
+    <div class="plans">
+      <div class="plan"><h3>Light</h3><div class="price">R$ 49,99<small>/mês</small></div><div class="fipe">FIPE até R$ 20 mil</div></div>
+      <div class="plan"><h3>Essencial</h3><div class="price">R$ 59,99<small>/mês</small></div><div class="fipe">FIPE até R$ 30 mil</div></div>
+      <div class="plan"><h3>Plus</h3><div class="price">R$ 64,99<small>/mês</small></div><div class="fipe">FIPE até R$ 35 mil</div></div>
+      <div class="plan"><h3>Mega</h3><div class="price">R$ 69,99<small>/mês</small></div><div class="fipe">FIPE até R$ 40 mil</div></div>
+      <div class="plan"><h3>Pró</h3><div class="price">R$ 74,99<small>/mês</small></div><div class="fipe">FIPE até R$ 45 mil</div></div>
+      <div class="plan"><h3>Super</h3><div class="price">R$ 84,99<small>/mês</small></div><div class="fipe">FIPE até R$ 50 mil</div></div>
+      <div class="plan"><h3>Gold</h3><div class="price">R$ 89,99<small>/mês</small></div><div class="fipe">FIPE até R$ 60 mil</div></div>
+    </div>
+    <p class="note">Caminhões e frotas: cotação personalizada. Coberturas conforme o regulamento de cada plano.</p>
+  </div>
+</section>
+
+<!-- 6. Dúvidas -->
+<section class="soft">
+  <div class="container">
+    <div class="head"><span class="kicker">Dúvidas</span><h2>Perguntas frequentes</h2></div>
+    <div class="faq">
+      <details><summary>Vou ficar sem proteção durante a troca?</summary><p>Não. A orientação é cancelar a proteção antiga só depois que a Cooperautos estiver ativa. Assim o seu veículo fica coberto o tempo todo.</p></details>
+      <details><summary>Preciso pagar a mais pela saúde?</summary><p>Não. Para o associado, os benefícios de saúde são grátis e já vêm junto com a proteção.</p></details>
+      <details><summary>Posso incluir minha família na saúde?</summary><p>Sim. Os dependentes entram pagando um valor especial por pessoa. O consultor passa a tabela na hora da migração.</p></details>
+      <details><summary>Minha proteção atual é de outra associação. Posso migrar?</summary><p>Sim. A migração foi pensada exatamente para quem já tem proteção veicular em outra empresa.</p></details>
+      <details><summary>O que é a Cooperautos?</summary><p>Uma cooperativa de consumo registrada na OCB, feita por quem vive o setor automotivo. Juntos, negociamos melhores condições em proteção, saúde, seguros, pneus e peças.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Formulário -->
+<section id="migrar">
+  <div class="container">
+    <div class="form-wrap">
+      <div>
+        <h2>Quero migrar para a <span class="hl">Cooperautos</span></h2>
+        <p style="opacity:.9">Deixe seus dados e um consultor faz a comparação com a sua proteção atual, sem compromisso.</p>
+      </div>
+      <form id="form-migracao">
+        <input name="Nome" placeholder="Seu nome" required>
+        <div class="two">
+          <input name="WhatsApp" placeholder="WhatsApp" required>
+          <input name="Cidade" placeholder="Cidade/UF">
+        </div>
+        <input name="Proteção atual" placeholder="Qual empresa protege seu veículo hoje?">
+        <div class="two">
+          <input name="Veículo" placeholder="Modelo e ano">
+          <input name="Valor atual" placeholder="Quanto paga por mês?">
+        </div>
+        <input name="Dependentes" placeholder="Quantos dependentes quer incluir na saúde? (opcional)">
+        <button class="btn btn-blue" type="submit">Quero migrar</button>
+        <small>Ao enviar, você concorda em ser contatado pela Cooperautos.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="logo dark" href="../">cooper<span>autos</span></a>
+    <div>Cooperautos Cooperativa de Consumo Ltda · CNPJ 57.492.649/0001-94</div>
+    <div>R. Jair Martins Mil Homens, 500, Sala 815, São José do Rio Preto/SP · (11) 4509-5165 · contato@cooperautos.com.br</div>
+    <div style="margin-top:10px">Proteção patrimonial mutualista oferecida por parceiros em regularização junto à Susep, conforme a Lei Complementar 213/2025. Consulte o regulamento.</div>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn btn-lime" href="#migrar">Quero migrar minha proteção</a></div>
+
+<script>
+  // Sem servidor: abre o e-mail já preenchido. Troque pelo CRM ou WhatsApp quando houver.
+  document.getElementById("form-migracao").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var linhas = [];
+    new FormData(this).forEach(function (v, k) { if (v) linhas.push(k + ": " + v); });
+    location.href = "mailto:contato@cooperautos.com.br?subject=" + encodeURIComponent("[Site] Migração de proteção veicular") +
+      "&body=" + encodeURIComponent(linhas.join("\n"));
+  });
+</script>
+</body>
+</html>
