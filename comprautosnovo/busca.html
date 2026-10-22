@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Comprautos – Busca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#F4F6FB}
+a{color:#0E45AB}a:hover{color:#0B3889}
+</style>
+</head>
+<body>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0F172A; background: #F4F6FB; min-height: 100vh">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E2E7F0">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
+      <a href="index.html" aria-label="Comprautos, página inicial" style="display: flex; align-items: center"><img src="assets/logo.svg" alt="Comprautos" style="height: 24px; width: auto; display: block"></a>
+      <label style="flex: 1 1 360px; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px; border: 1px solid #E2E7F0; border-radius: 12px; background: #F4F6FB">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B5873" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <span style="position: absolute; left: -9999px">Buscar</span>
+        <input type="text" value="SUV automático" style="flex: 1 1 auto; border: none; outline: none; background: transparent; font-family: inherit; font-size: 15px; color: #0F172A">
+      </label>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button aria-label="Favoritos" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+        </button>
+        <button aria-label="Mensagens" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+        <a href="index.html#vender" style="height: 44px; padding: 0 18px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none">Anunciar grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px 24px 64px">
+    <nav aria-label="Você está em" style="font-size: 13px; color: #4B5873; display: flex; gap: 6px; flex-wrap: wrap">
+      <a href="index.html" style="color: #4B5873; text-decoration: none">Início</a><span aria-hidden="true">/</span><span>Carros usados</span><span aria-hidden="true">/</span><span style="color: #0F172A; font-weight: 600">SUV automático</span>
+    </nav>
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 12px 0 20px">
+      <h1 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">SUVs automáticos à venda</h1>
+      <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #4B5873; font-weight: 600">Ordenar por
+        <select style="height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 600; color: #0F172A">
+          <option>Mais abaixo da FIPE</option>
+          <option>Menor preço</option>
+          <option>Menor quilometragem</option>
+          <option>Mais recentes</option>
+        </select>
+      </label>
+    </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+      
+        <button style="height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #C8D5F0; background: #E8EEFA; color: #0E45AB; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer">SUV
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+      
+        <button style="height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #C8D5F0; background: #E8EEFA; color: #0E45AB; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer">Automático
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+      
+        <button style="height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #C8D5F0; background: #E8EEFA; color: #0E45AB; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer">Até 200 km de Catanduva
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+      
+      <button style="height: 36px; padding: 0 12px; border: none; background: transparent; color: #4B5873; font-family: inherit; font-size: 13px; font-weight: 700; text-decoration: underline; cursor: pointer">Limpar tudo</button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+            <aside aria-label="Filtros" style="flex: 1 1 260px; max-width: 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 22px">
+        <label style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-radius: 12px; background: #DDF3EA">
+          <span style="font-weight: 700; font-size: 14px; color: #0B5E43">Só abaixo da FIPE</span>
+          <input type="checkbox" checked style="width: 22px; height: 22px; accent-color: #0B5E43">
+        </label>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Preço</legend>
+          <div style="display: flex; gap: 8px">
+            <label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">Mínimo<input type="text" value="R$ 40.000" style="height: 40px; padding: 0 10px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px; min-width: 0"></label>
+            <label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">Máximo<input type="text" value="R$ 300.000" style="height: 40px; padding: 0 10px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px; min-width: 0"></label>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Ano</legend>
+          <div style="display: flex; gap: 8px">
+            <label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">De<select style="height: 40px; padding: 0 8px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px; background: #FFFFFF"><option>2015</option></select></label>
+            <label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">Até<select style="height: 40px; padding: 0 8px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px; background: #FFFFFF"><option>2026</option></select></label>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Marca</legend>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="false" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Chevrolet</span></label>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="false" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Fiat</span></label>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="true" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Hyundai</span></label>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="true" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Jeep</span></label>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="false" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Mercedes-Benz</span></label>
+          
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 28px"><input type="checkbox" checked="true" style="width: 18px; height: 18px; accent-color: #0E45AB"><span style="flex: 1 1 auto">Toyota</span></label>
+          
+          <a href="#marcas" style="font-size: 13px; font-weight: 700">Ver todas as marcas</a>
+        </fieldset>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Câmbio</legend>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #0E45AB; background: #E8EEFA; color: #0E45AB; font-family: inherit; font-weight: 700; font-size: 13px">Automático</button>
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #E2E7F0; background: #FFFFFF; color: #0F172A; font-family: inherit; font-weight: 600; font-size: 13px">Manual</button>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Combustível</legend>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #E2E7F0; background: #FFFFFF; color: #0F172A; font-family: inherit; font-weight: 600; font-size: 13px">Flex</button>
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #E2E7F0; background: #FFFFFF; color: #0F172A; font-family: inherit; font-weight: 600; font-size: 13px">Diesel</button>
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #E2E7F0; background: #FFFFFF; color: #0F172A; font-family: inherit; font-weight: 600; font-size: 13px">Híbrido</button>
+            <button style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid #E2E7F0; background: #FFFFFF; color: #0F172A; font-family: inherit; font-weight: 600; font-size: 13px">Elétrico</button>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-weight: 800; font-size: 15px; margin-bottom: 10px; padding: 0">Localização</legend>
+          <label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">Cidade<input type="text" value="Catanduva, SP" style="height: 40px; padding: 0 10px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px"></label>
+          <label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4B5873; font-weight: 600">Raio<select style="height: 40px; padding: 0 8px; border: 1px solid #E2E7F0; border-radius: 10px; font-family: inherit; font-size: 14px; background: #FFFFFF"><option>Até 200 km</option></select></label>
+        </fieldset>
+      </aside>
+
+            <section aria-label="Resultados" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px">
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c16.jpg" alt="Porsche Cayenne" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">4% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">14 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Porsche Cayenne</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">3.0 V6 E-Hybrid Tiptronic</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2021</span><span>38.500 km</span><span>São Paulo, SP</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 489.900</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 512.300</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 10.487/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c13.jpg" alt="Mercedes-Benz GL 63 AMG" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">5% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">9 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Mercedes-Benz GL 63 AMG</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">5.5 V8 Bi-Turbo 4x4 Aut.</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2014</span><span>87.622 km</span><span>Novais, SP</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 255.000</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 268.400</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 5.458/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c5.jpg" alt="Hyundai HB20 R spec" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">5% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">11 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Hyundai HB20 R spec</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.6 Flex 16V Aut.</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2018</span><span>11.345 km</span><span>São José, SC</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 63.300</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 66.900</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 1.355/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Particular
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c11.jpg" alt="Fiat Ducato Cargo" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">4% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">8 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Fiat Ducato Cargo</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">2.3 Multijet Diesel</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2021</span><span>92.000 km</span><span>Ribeirão Preto, SP</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 159.900</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 166.000</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 3.423/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c15.jpg" alt="Renault Sandero R.S." style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #EEF1F6; color: #334155">Na média da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">12 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Renault Sandero R.S.</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">2.0 16V Flex Manual</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2019</span><span>61.200 km</span><span>Curitiba, PR</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 64.900</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 63.800</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 1.389/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c7.jpg" alt="Fiat Strada Working" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">3% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">7 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Fiat Strada Working</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.4 Fire Flex Cabine Simples</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2012</span><span>85.956 km</span><span>Cruz das Almas, BA</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 39.900</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 41.200</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 854/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Particular
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c2.jpg" alt="Renault Sandero Stepway" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">4% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">10 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Renault Sandero Stepway</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.6 16V Hi-Flex</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2010</span><span>50.122 km</span><span>Mauá da Serra, PR</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 29.700</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 30.900</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 636/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c6.jpg" alt="Chevrolet Astra" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">5% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">6 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Chevrolet Astra</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">2.0 8V CD Aut.</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2004</span><span>145.422 km</span><span>Perobal, PR</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 23.100</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 24.300</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 494/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Particular
+                </div>
+              </div>
+            </article>
+          
+            <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+              <div style="position: relative">
+                <a href="veiculo.html" style="display: block"><img src="assets/c20.jpg" alt="Fiat Palio Weekend" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
+                <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">3% abaixo da FIPE</span>
+                <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+                </button>
+                <span style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; border-radius: 8px; background: rgba(10,26,58,0.8); color: #FFFFFF; font-size: 12px; font-weight: 700">9 fotos</span>
+              </div>
+              <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+                <div>
+                  <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Fiat Palio Weekend</a>
+                  <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.6 16V ELX</div>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
+                  <span>2003</span><span>132.000 km</span><span>Catanduva, SP</span>
+                </div>
+                <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+                  <span style="font-size: 22px; font-weight: 800">R$ 18.900</span>
+                  <span style="font-size: 12px; color: #4B5873">FIPE R$ 19.400</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 405/mês</strong> com 30% de entrada</div>
+                <div style="font-size: 12px; color: #4B5873; display: flex; align-items: center; gap: 6px">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  Loja verificada
+                </div>
+              </div>
+            </article>
+          
+        </div>
+
+        <nav aria-label="Páginas" style="display: flex; justify-content: center; gap: 6px; padding-top: 12px; flex-wrap: wrap">
+          <a href="#p1" aria-current="page" style="width: 44px; height: 44px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">1</a>
+          <a href="#p2" style="width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">2</a>
+          <a href="#p3" style="width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">3</a>
+          <a href="#p2" style="height: 44px; padding: 0 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; display: flex; align-items: center; text-decoration: none">Próxima</a>
+        </nav>
+      </section>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
