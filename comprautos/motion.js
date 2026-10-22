@@ -54,9 +54,9 @@
       prepared.add(hero);
       if (!navigating) {
         hero.querySelectorAll('.hero-copy > *').forEach((element, index) => {
-          animate(element, [{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 620, delay: index * 65, easing, fill: 'backwards' });
+          animate(element, [{ opacity: 1, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 620, delay: index * 65, easing, fill: 'backwards' });
         });
-        animate(hero.querySelector('.hero-photo'), [{ opacity: 0.5, transform: 'scale(1.035)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 900, easing });
+        animate(hero.querySelector('.hero-photo'), [{ opacity: 1, transform: 'scale(1.035)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 900, easing });
         animate(hero.querySelector('.hero-stamp'), [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 550, delay: 240, easing, fill: 'backwards' });
       }
     }

@@ -24,3 +24,7 @@ Fotos Unsplash:
 ## Transições e acessibilidade
 
 Entrada progressiva de seções e cartões ao rolar, transições entre telas, abertura e fechamento de diálogos e feedback nos favoritos. Implementação com CSS e APIs nativas, sem bibliotecas adicionais. A preferência `prefers-reduced-motion` desativa os efeitos. Conteúdo permanece disponível quando as APIs de animação não são suportadas.
+
+## SEO e SEM
+
+Domínio oficial preparado: https://comprautos.com.br/. A prévia permanece com noindex. Consulte [SEO-SEM.md](SEO-SEM.md) para gerar as páginas, validar e preparar a implantação oficial com anúncios reais e mensuração.

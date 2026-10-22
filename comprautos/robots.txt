@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Preview: every HTML page carries noindex, follow. Do not submit this preview.
