@@ -4,263 +4,151 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Comprautos – Página do veículo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
-<style>
-body{margin:0;background:#F4F6FB}
-a{color:#0E45AB}a:hover{color:#0B3889}
-</style>
+<title>Hyundai Creta 2023 – Comprautos</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0F172A; background: #F4F6FB; min-height: 100vh">
 
-  <header style="background: #FFFFFF; border-bottom: 1px solid #E2E7F0">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap">
-      <a href="index.html" aria-label="Comprautos, página inicial" style="display: flex; align-items: center"><img src="assets/logo.svg" alt="Comprautos" style="height: 24px; width: auto; display: block"></a>
-      <a href="busca.html" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; text-decoration: none; flex: 1 1 auto">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg>
-        Voltar para a busca
-      </a>
-      <div style="display: flex; gap: 8px">
-        <button aria-label="Compartilhar" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path></svg>
-        </button>
-        <button aria-label="Favoritar" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-        </button>
-      </div>
+<header class="header">
+  <div class="wrap header-in">
+    <a class="logo" href="index.html" aria-label="Comprautos, página inicial"><img src="assets/logo.svg" alt="Comprautos"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="busca.html" aria-current="page">Comprar</a>
+      <a href="index.html#vender">Vender</a>
+      <a href="index.html#lojas">Para lojistas</a>
+      <a href="index.html#protecao">Proteção</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" aria-label="Compartilhar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Favoritos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="count" data-fav-count data-zero>0</span>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="#entrar">Entrar</a>
     </div>
-  </header>
-
-  <div style="max-width: 1240px; margin: 0 auto; padding: 24px 24px 72px; display: flex; flex-direction: column; gap: 28px">
-
-        <section aria-label="Fotos" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: 220px 220px; gap: 10px; border-radius: 24px; overflow: hidden">
-      <img src="assets/c16.jpg" alt="Porsche Cayenne azul, vista dianteira" style="grid-column: span 2; grid-row: span 2; width: 100%; height: 100%; object-fit: cover; display: block">
-      <img src="assets/c16.jpg" alt="Detalhe da lateral" style="width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%; display: block">
-      <img src="assets/c16.jpg" alt="Detalhe do farol" style="width: 100%; height: 100%; object-fit: cover; object-position: 20% 60%; transform: scale(1.4); display: block">
-      <img src="assets/c16.jpg" alt="Detalhe da roda" style="width: 100%; height: 100%; object-fit: cover; object-position: 60% 90%; display: block">
-      <div style="position: relative">
-        <img src="assets/c17.jpg" alt="Painel e bancos" style="width: 100%; height: 100%; object-fit: cover; display: block">
-        <a href="#fotos" style="position: absolute; inset: 0; background: rgba(10,26,58,0.55); color: #FFFFFF; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; text-decoration: none">+10 fotos</a>
-      </div>
-    </section>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start">
-            <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-        <div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px">
-            <span style="padding: 5px 10px; border-radius: 8px; background: #DDF3EA; color: #0B5E43; font-size: 13px; font-weight: 700">4% abaixo da FIPE</span>
-            <span style="padding: 5px 10px; border-radius: 8px; background: #E8EEFA; color: #0E45AB; font-size: 13px; font-weight: 700">Loja verificada</span>
-          </div>
-          <h1 style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em">Porsche Cayenne</h1>
-          <p style="margin: 4px 0 0; font-size: 17px; color: #4B5873">3.0 V6 E-Hybrid Tiptronic · São Paulo, SP</p>
-        </div>
-
-        <section aria-label="Ficha" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 4px">
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Ano</span>
-              <span style="font-size: 17px; font-weight: 800">2021/2021</span>
-            </div>
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Quilometragem</span>
-              <span style="font-size: 17px; font-weight: 800">38.500 km</span>
-            </div>
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Câmbio</span>
-              <span style="font-size: 17px; font-weight: 800">Automático</span>
-            </div>
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Combustível</span>
-              <span style="font-size: 17px; font-weight: 800">Híbrido</span>
-            </div>
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Cor</span>
-              <span style="font-size: 17px; font-weight: 800">Azul</span>
-            </div>
-          
-            <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
-              <span style="font-size: 12px; color: #4B5873; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em">Final da placa</span>
-              <span style="font-size: 17px; font-weight: 800">7</span>
-            </div>
-          
-        </section>
-
-        <section aria-labelledby="fipe-t" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
-          <h2 id="fipe-t" style="margin: 0; font-size: 20px; font-weight: 800">Comparação com a FIPE</h2>
-          <div style="position: relative; height: 12px; border-radius: 999px; background: #EEF1F6">
-            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 46%; border-radius: 999px; background: #0B5E43"></div>
-            <div style="position: absolute; left: 50%; top: -6px; width: 2px; height: 24px; background: #0F172A"></div>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; font-size: 14px">
-            <div><div style="color: #4B5873">Este anúncio</div><div style="font-weight: 800; font-size: 20px; color: #0B5E43">R$ 489.900</div></div>
-            <div><div style="color: #4B5873">Média de anúncios iguais no Comprautos</div><div style="font-weight: 800; font-size: 20px">R$ 505.700</div></div>
-            <div><div style="color: #4B5873">Tabela FIPE (out/2026)</div><div style="font-weight: 800; font-size: 20px">R$ 512.300</div></div>
-          </div>
-          <p style="margin: 0; font-size: 14px; color: #4B5873; line-height: 1.6">Está R$ 22.400 abaixo da FIPE e R$ 15.800 abaixo dos carros iguais anunciados aqui.</p>
-        </section>
-
-        <section aria-labelledby="opc-t" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
-          <h2 id="opc-t" style="margin: 0; font-size: 20px; font-weight: 800">Itens e opcionais</h2>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Teto solar panorâmico
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Bancos em couro
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Câmera 360°
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Piloto automático adaptativo
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Faróis em LED
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Carregador por indução
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Ar-condicionado 4 zonas
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Sensor de estacionamento
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Apple CarPlay e Android Auto
-              </span>
-            
-              <span style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: #F4F6FB; font-size: 14px; font-weight: 600">
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E45AB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg>Rodas aro 21
-              </span>
-            
-          </div>
-        </section>
-
-        <section aria-labelledby="desc-t" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-          <h2 id="desc-t" style="margin: 0; font-size: 20px; font-weight: 800">Sobre este carro</h2>
-          <p style="margin: 0; font-size: 15px; color: #334155; line-height: 1.7">[DESCRIÇÃO DO VENDEDOR: histórico de revisões, único dono, motivo da venda, condições de troca.]</p>
-        </section>
-
-                <section aria-labelledby="loja-t" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; padding: 24px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center">
-          <span style="width: 56px; height: 56px; border-radius: 14px; background: #0A1A3A; color: #FFFFFF; font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center">[L]</span>
-          <div style="flex: 1 1 240px">
-            <h2 id="loja-t" style="margin: 0; font-size: 18px; font-weight: 800">[NOME DA LOJA]</h2>
-            <div style="font-size: 14px; color: #4B5873">São Paulo, SP · [N] carros no estoque</div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px">
-              <span style="display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 8px; background: #DDF3EA; color: #0B5E43; font-size: 13px; font-weight: 700"><span style="width: 8px; height: 8px; border-radius: 999px; background: #0B5E43"></span>Aberta agora · fecha às 19h</span>
-              <span style="padding: 5px 10px; border-radius: 8px; background: #F4F6FB; font-size: 13px; font-weight: 600">No Comprautos desde [ANO]</span>
-              <span style="padding: 5px 10px; border-radius: 8px; background: #F4F6FB; font-size: 13px; font-weight: 600">Responde em média em [X] min</span>
-            </div>
-          </div>
-          <a href="#loja" style="min-height: 44px; padding: 0 16px; border-radius: 12px; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 14px; display: flex; align-items: center; text-decoration: none">Ver site da loja</a>
-        </section>
-      </div>
-
-            <aside aria-label="Preço e contato" style="flex: 1 1 340px; max-width: 400px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-        <div style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 12px 32px rgba(10,26,58,0.08)">
-          <div style="font-size: 14px; color: #4B5873; font-weight: 600">Preço</div>
-          <div style="font-size: 36px; font-weight: 800; letter-spacing: -0.01em; line-height: 1">R$ 489.900</div>
-          <div style="font-size: 14px; color: #0B5E43; font-weight: 700">R$ 22.400 abaixo da FIPE</div>
-          <a href="#chat" style="min-height: 52px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            Conversar com a loja
-          </a>
-          <a href="#proposta" style="min-height: 52px; border-radius: 12px; border: 1px solid #0E45AB; color: #0E45AB; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; text-decoration: none">Fazer uma proposta</a>
-          <p style="margin: 0; font-size: 12px; color: #4B5873; line-height: 1.5">Seu telefone só é compartilhado se você quiser.</p>
-        </div>
-
-                <div style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
-          <h2 style="margin: 0; font-size: 18px; font-weight: 800">Simular financiamento</h2>
-          <div style="font-size: 13px; color: #4B5873; font-weight: 600">Entrada de 30% · R$ 146.970</div>
-          <div role="group" aria-label="Prazo" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
-            
-              <button aria-pressed="false" data-months="24" style="height: 44px; border-radius: 10px; font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer; background: #FFFFFF; color: #0F172A; border: 1px solid #E2E7F0">24x</button>
-            
-              <button aria-pressed="false" data-months="36" style="height: 44px; border-radius: 10px; font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer; background: #FFFFFF; color: #0F172A; border: 1px solid #E2E7F0">36x</button>
-            
-              <button aria-pressed="true" data-months="48" style="height: 44px; border-radius: 10px; font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer; background: #0E45AB; color: #FFFFFF; border: 1px solid #0E45AB">48x</button>
-            
-              <button aria-pressed="false" data-months="60" style="height: 44px; border-radius: 10px; font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer; background: #FFFFFF; color: #0F172A; border: 1px solid #E2E7F0">60x</button>
-            
-          </div>
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 14px 16px; border-radius: 12px; background: #F4F6FB">
-            <span data-months-label="" style="font-size: 14px; color: #4B5873; font-weight: 600">48 parcelas de</span>
-            <span data-installment="" style="font-size: 22px; font-weight: 800">R$ 10.487</span>
-          </div>
-          <p style="margin: 0; font-size: 12px; color: #4B5873">Simulação com taxa de exemplo de 1,69% a.m. A taxa real depende da análise de crédito.</p>
-        </div>
-
-                <div style="background: #0A1A3A; color: #FFFFFF; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-          <div style="display: flex; align-items: center; gap: 10px">
-            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-            <span style="font-weight: 800; font-size: 17px">Saia com este carro protegido</span>
-          </div>
-          <p style="margin: 0; font-size: 14px; color: #C9D4EA; line-height: 1.6">Cotação de proteção veicular da Clube Autos para este modelo, junto com a compra.</p>
-          <a href="#protecao" style="min-height: 44px; border-radius: 12px; background: #FFFFFF; color: #0A1A3A; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; text-decoration: none">Cotar proteção</a>
-        </div>
-      </aside>
-    </div>
-
-        <section aria-labelledby="sim-t" style="padding-top: 24px">
-      <h2 id="sim-t" style="margin: 0 0 18px; font-size: 26px; font-weight: 800">Você também pode gostar</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px">
-        
-          <a href="veiculo.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #0F172A">
-            <img src="assets/c13.jpg" alt="Mercedes-Benz GL 63 AMG" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
-            <span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px">
-              <span style="font-weight: 800; font-size: 16px">Mercedes-Benz GL 63 AMG</span>
-              <span style="font-size: 13px; color: #4B5873">2014 · 87.622 km · Novais, SP</span>
-              <span style="font-size: 20px; font-weight: 800">R$ 255.000</span>
-            </span>
-          </a>
-        
-          <a href="veiculo.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #0F172A">
-            <img src="assets/c5.jpg" alt="Hyundai HB20 R spec" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
-            <span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px">
-              <span style="font-weight: 800; font-size: 16px">Hyundai HB20 R spec</span>
-              <span style="font-size: 13px; color: #4B5873">2018 · 11.345 km · São José, SC</span>
-              <span style="font-size: 20px; font-weight: 800">R$ 63.300</span>
-            </span>
-          </a>
-        
-          <a href="veiculo.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #0F172A">
-            <img src="assets/c15.jpg" alt="Renault Sandero R.S." style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
-            <span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px">
-              <span style="font-weight: 800; font-size: 16px">Renault Sandero R.S.</span>
-              <span style="font-size: 13px; color: #4B5873">2019 · 61.200 km · Curitiba, PR</span>
-              <span style="font-size: 20px; font-weight: 800">R$ 64.900</span>
-            </span>
-          </a>
-        
-          <a href="veiculo.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #0F172A">
-            <img src="assets/c11.jpg" alt="Fiat Ducato Cargo" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
-            <span style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px">
-              <span style="font-weight: 800; font-size: 16px">Fiat Ducato Cargo</span>
-              <span style="font-size: 13px; color: #4B5873">2021 · 92.000 km · Ribeirão Preto, SP</span>
-              <span style="font-size: 20px; font-weight: 800">R$ 159.900</span>
-            </span>
-          </a>
-        
-      </div>
-    </section>
   </div>
-</div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Você está em" style="padding-top:24px"><a href="index.html">Início</a><span aria-hidden="true">/</span><a href="busca.html">Carros usados</a><span aria-hidden="true">/</span><span>Hyundai Creta</span></nav>
+
+  <section class="gallery" aria-label="Fotos">
+    <div class="stage"><img src="assets/v2/suv-azul.jpg" alt="Hyundai Creta azul, vista dianteira" style="view-transition-name: car-photo"></div>
+    <div class="thumbs">
+      <button type="button" aria-current="true" aria-label="Foto 1" data-src="assets/v2/suv-azul.jpg" data-pos="50% 50%"><img src="assets/v2/suv-azul.jpg" alt=""></button>
+      <button type="button" aria-current="false" aria-label="Foto 2" data-src="assets/v2/suv-azul.jpg" data-pos="25% 60%" data-zoom="1.6"><img src="assets/v2/suv-azul.jpg" alt="" style="object-position:25% 60%;transform:scale(1.6)"></button>
+      <button type="button" aria-current="false" aria-label="Foto 3" data-src="assets/v2/suv-azul.jpg" data-pos="80% 70%" data-zoom="1.6"><img src="assets/v2/suv-azul.jpg" alt="" style="object-position:80% 70%;transform:scale(1.6)"></button>
+      <button type="button" aria-current="false" aria-label="Foto 4" data-src="assets/v2/suv-azul.jpg" data-pos="50% 30%" data-zoom="1.4"><img src="assets/v2/suv-azul.jpg" alt="" style="object-position:50% 30%;transform:scale(1.4)"></button>
+    </div>
+  </section>
+
+  <div class="detail">
+    <div>
+      <div class="tags reveal">
+        <span class="tag good">5% abaixo da FIPE</span>
+        <span class="tag blue">Loja verificada</span>
+        <span class="tag">Laudo cautelar aprovado</span>
+      </div>
+      <h1 class="h2 reveal">Hyundai Creta</h1>
+      <p class="lead reveal" style="margin-top:6px">1.0 Turbo Platinum Aut. · Catanduva, SP</p>
+
+      <dl class="specs reveal">
+        <div><dt>Ano</dt><dd>2023/2023</dd></div>
+        <div><dt>Quilometragem</dt><dd>28.400 km</dd></div>
+        <div><dt>Câmbio</dt><dd>Automático</dd></div>
+        <div><dt>Combustível</dt><dd>Flex</dd></div>
+        <div><dt>Cor</dt><dd>Azul</dd></div>
+        <div><dt>Final da placa</dt><dd>7</dd></div>
+      </dl>
+
+      <section class="block reveal" aria-labelledby="fipe-t">
+        <h2 id="fipe-t">Comparação de preço</h2>
+        <div class="compare">
+          <div><span>Este anúncio</span><strong>R$ 129.900</strong></div>
+          <div><span>Média no Comprautos</span><strong>R$ 132.800</strong></div>
+          <div><span>Tabela FIPE (out/2026)</span><strong>R$ 136.500</strong></div>
+        </div>
+        <div class="meter" style="--w: 95%"><i></i></div>
+        <p class="muted" style="margin:0;font-size:14px">R$ 6.600 abaixo da FIPE e R$ 2.900 abaixo dos carros iguais anunciados aqui.</p>
+      </section>
+
+      <section class="block reveal" aria-labelledby="opc-t">
+        <h2 id="opc-t">Itens e opcionais</h2>
+        <div class="opts">
+          <span>Teto solar panorâmico</span><span>Bancos em couro</span><span>Câmera 360°</span><span>Piloto adaptativo</span><span>Faróis em LED</span><span>Carregador por indução</span><span>CarPlay e Android Auto</span><span>Sensor de estacionamento</span>
+        </div>
+      </section>
+
+      <section class="block reveal" aria-labelledby="desc-t">
+        <h2 id="desc-t">Sobre este carro</h2>
+        <p class="muted" style="margin:0">[DESCRIÇÃO DO VENDEDOR: histórico de revisões, único dono, motivo da venda, condições de troca.]</p>
+      </section>
+
+      <section class="block reveal" aria-labelledby="loja-t">
+        <div class="seller">
+          <span class="store-logo">[L]</span>
+          <div>
+            <h2 id="loja-t" style="font-size:18px;margin:0">[NOME DA LOJA]</h2>
+            <div class="muted" style="font-size:14px">Catanduva, SP · [N] carros no estoque</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:14px;font-weight:600">
+              <span><span class="dot"></span>Aberta agora · fecha às 19h</span>
+              <span class="muted">Responde em média em [X] min</span>
+            </div>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="#loja">Ver site da loja</a>
+        </div>
+      </section>
+    </div>
+
+    <aside class="aside" aria-label="Preço e contato">
+      <div class="price-card">
+        <span class="muted" style="font-size:14px;font-weight:600">Preço</span>
+        <span class="big">R$ 129.900</span>
+        <span style="color:var(--good);font-weight:700;font-size:14px">R$ 6.600 abaixo da FIPE</span>
+        <a class="btn btn-primary btn-block" href="#chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Conversar com a loja
+        </a>
+        <a class="btn btn-ghost btn-block" href="#proposta">Fazer uma proposta</a>
+        <p class="note">Seu telefone só é compartilhado se você quiser.</p>
+      </div>
+
+      <div class="sim">
+        <strong>Simular financiamento</strong>
+        <span class="muted" style="font-size:13px">Entrada de 30% · R$ 38.970 · sem cadastro</span>
+        <div class="terms" role="group" aria-label="Prazo" data-price="129900">
+          <span class="terms-ind" aria-hidden="true" style="transform:translateX(200%)"></span>
+          <button type="button" data-months="24" aria-pressed="false">24x</button>
+          <button type="button" data-months="36" aria-pressed="false">36x</button>
+          <button type="button" data-months="48" aria-pressed="true">48x</button>
+          <button type="button" data-months="60" aria-pressed="false">60x</button>
+        </div>
+        <div class="installment"><span class="muted" data-months-label style="font-size:14px;font-weight:600">48 parcelas de</span><strong data-installment>R$ 0</strong></div>
+        <p class="note">Taxa de exemplo de 1,69% a.m. A taxa real depende da análise de crédito.</p>
+      </div>
+
+      <div class="protect-mini">
+        <strong style="font-size:17px">Saia com este carro protegido</strong>
+        <p>Cotação da Clube Autos para este modelo, junto com a compra.</p>
+        <a class="btn btn-white btn-sm" href="index.html#protecao">Cotar proteção</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="section" aria-labelledby="sim-t">
+    <div class="section-head reveal"><h2 class="h2" id="sim-t" style="font-size:28px">Você também pode gostar</h2></div>
+    <div class="grid" data-cars="5,7,2,3"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <small>Prévia de layout. Anúncios, preços e lojas são exemplos; fotos ilustrativas geradas por IA.</small>
+  </div>
+</footer>
+
 <script src="app.js"></script>
 </body>
 </html>

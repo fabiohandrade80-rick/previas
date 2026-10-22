@@ -4,433 +4,196 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Comprautos – Home</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
-<style>
-body{margin:0;background:#F4F6FB}
-a{color:#0E45AB}a:hover{color:#0B3889}
-</style>
+<title>Comprautos – O carro certo, pelo preço justo</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0F172A; background: #F4F6FB; min-height: 100vh">
 
-    <header style="background: #FFFFFF; border-bottom: 1px solid #E2E7F0">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap">
-      <a href="index.html" aria-label="Comprautos, página inicial" style="display: flex; align-items: center"><img src="assets/logo.svg" alt="Comprautos" style="height: 24px; width: auto; display: block"></a>
-      <nav aria-label="Principal" style="display: flex; gap: 4px; flex-wrap: wrap; flex: 1 1 auto">
-        <a href="busca.html" style="padding: 10px 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: #0F172A; text-decoration: none">Comprar</a>
-        <a href="#vender" style="padding: 10px 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: #0F172A; text-decoration: none">Vender</a>
-        <a href="#lojas" style="padding: 10px 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: #0F172A; text-decoration: none">Lojas</a>
-        <a href="#fipe" style="padding: 10px 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: #0F172A; text-decoration: none">Tabela FIPE</a>
-        <a href="#protecao" style="padding: 10px 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: #0F172A; text-decoration: none">Proteção veicular</a>
-      </nav>
-      <div style="display: flex; align-items: center; gap: 8px">
-        <button aria-label="Favoritos" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-        </button>
-        <button aria-label="Mensagens" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E7F0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #0F172A">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </button>
-        <a href="#vender" style="height: 44px; padding: 0 18px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none">Anunciar grátis</a>
-        <a href="#entrar" style="height: 44px; padding: 0 16px; border-radius: 12px; color: #0E45AB; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none">Entrar</a>
-      </div>
+<header class="header">
+  <div class="wrap header-in">
+    <a class="logo" href="index.html" aria-label="Comprautos, página inicial"><img src="assets/logo.svg" alt="Comprautos"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="busca.html">Comprar</a>
+      <a href="#vender">Vender</a>
+      <a href="#lojas">Para lojistas</a>
+      <a href="#protecao">Proteção</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" aria-label="Favoritos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="count" data-fav-count data-zero>0</span>
+      </button>
+      <button class="icon-btn" type="button" aria-label="Mensagens">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="#entrar">Entrar</a>
+      <a class="btn btn-primary btn-sm" href="#vender">Anunciar grátis</a>
     </div>
-  </header>
+  </div>
+</header>
 
-    <section style="background: #0A1A3A; color: #FFFFFF">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
-      <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-        <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 13px; font-weight: 600; letter-spacing: 0.02em">Preço comparado com a FIPE em todo anúncio</span>
-        <h1 style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">O carro certo,<br>pelo preço justo.</h1>
-        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9D4EA; max-width: 520px">Encontre seminovos de lojas verificadas, veja na hora se o preço está abaixo da FIPE e fale direto com o vendedor pelo chat.</p>
-
-                <div style="background: #FFFFFF; color: #0F172A; border-radius: 20px; padding: 8px; box-shadow: 0 24px 48px rgba(3,10,30,0.35); max-width: 640px">
-          <div role="tablist" aria-label="O que você quer fazer" style="display: flex; gap: 4px; padding: 4px">
-            <button role="tab" aria-selected="true" data-action="showBuy" style="flex: 1 1 0; height: 44px; border-radius: 12px; border: none; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 700; background: #0E45AB; color: #FFFFFF">Quero comprar</button>
-            <button role="tab" aria-selected="false" data-action="showSell" style="flex: 1 1 0; height: 44px; border-radius: 12px; border: none; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 700; background: transparent; color: #4B5873">Quero vender</button>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Seminovos com preço comparado à FIPE</p>
+          <h1 class="h1">O carro certo,<br>pelo preço justo.</h1>
+          <p class="lead">Veja na hora se o anúncio está abaixo da tabela e fale direto com a loja pelo chat, sem expor seu telefone.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="busca.html">Ver carros</a>
+            <a class="btn btn-ghost" href="#vender">Vender meu carro</a>
           </div>
-          <div data-if="buyTab">
-            <form style="display: flex; flex-wrap: wrap; gap: 8px; padding: 8px">
-              <label style="flex: 2 1 220px; display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border: 1px solid #E2E7F0; border-radius: 12px">
-                <span style="font-size: 12px; font-weight: 700; color: #4B5873">Marca ou modelo</span>
-                <input type="text" placeholder="Ex.: Onix, Compass, Hilux" style="border: none; outline: none; font-family: inherit; font-size: 15px; padding: 0; color: #0F172A; background: transparent">
-              </label>
-              <label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border: 1px solid #E2E7F0; border-radius: 12px">
-                <span style="font-size: 12px; font-weight: 700; color: #4B5873">Cidade</span>
-                <input type="text" placeholder="Catanduva, SP" style="border: none; outline: none; font-family: inherit; font-size: 15px; padding: 0; color: #0F172A; background: transparent">
-              </label>
-              <a href="busca.html" style="flex: 0 0 auto; min-height: 60px; padding: 0 24px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px; text-decoration: none">
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/v2/hero.jpg" alt="SUV branco em estúdio">
+          <div class="hero-tag">
+            <div><span>Volkswagen T-Cross · 2022</span><strong>R$ 132.900</strong></div>
+            <span class="tag">Na média da FIPE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="search">
+        <div class="seg" role="tablist" aria-label="O que você quer fazer" data-active="buy">
+          <span class="seg-ind" aria-hidden="true"></span>
+          <button type="button" role="tab" data-tab="buy" aria-selected="true">Comprar</button>
+          <button type="button" role="tab" data-tab="sell" aria-selected="false">Vender</button>
+        </div>
+        <div class="panels">
+          <form class="panel" data-panel="buy" action="busca.html">
+            <div class="fields">
+              <div class="field"><label for="q">Marca ou modelo</label><input id="q" type="text" placeholder="Ex.: Creta, Corolla, Hilux"></div>
+              <div class="field"><label for="city">Cidade</label><input id="city" type="text" placeholder="Catanduva, SP"></div>
+              <div class="field"><label for="max">Até quanto?</label>
+                <select id="max"><option>Qualquer valor</option><option>Até R$ 50 mil</option><option>Até R$ 100 mil</option><option>Até R$ 150 mil</option></select>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
                 Buscar
-              </a>
-            </form>
-          </div>
-          <div data-if="sellTab" hidden>
-            <form style="display: flex; flex-wrap: wrap; gap: 12px; padding: 12px; align-items: center">
-              <label style="display: flex; flex-direction: column; border: 2px solid #0F172A; border-radius: 10px; overflow: hidden; width: 220px">
-                <span style="background: #0E45AB; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-align: center; padding: 3px 0">BRASIL</span>
-                <input type="text" value="ABC1D23" aria-label="Placa do veículo" style="border: none; outline: none; text-align: center; font-family: inherit; font-size: 30px; font-weight: 800; letter-spacing: 0.08em; padding: 6px 0; color: #0F172A">
-              </label>
-              <div style="flex: 1 1 200px; font-size: 14px; line-height: 1.5; color: #4B5873">Digite a placa. A gente puxa a ficha do carro e mostra o preço médio da FIPE.</div>
-              <a href="#vender" style="min-height: 52px; padding: 0 22px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; text-decoration: none">Avaliar meu carro</a>
-            </form>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">SUV</a>
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Picape</a>
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Até R$ 50 mil</a>
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Automático</a>
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Abaixo da FIPE</a>
-          
-            <a href="busca.html" style="padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Perto de mim</a>
-          
+              </button>
+            </div>
+          </form>
+          <form class="panel" data-panel="sell" hidden action="#vender">
+            <div class="sell-row">
+              <label class="plate"><span>BRASIL</span><input type="text" value="ABC1D23" aria-label="Placa do veículo" maxlength="7"></label>
+              <p>Digite a placa. A ficha do carro e o preço médio da FIPE aparecem na hora.</p>
+              <button class="btn btn-primary" type="submit">Avaliar meu carro</button>
+            </div>
+          </form>
         </div>
       </div>
 
-      <div style="flex: 1 1 420px; min-width: 0; position: relative">
-        <img src="assets/c16.jpg" alt="SUV azul em uma estrada" style="width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 28px; display: block">
-        <div style="position: absolute; left: 20px; bottom: 20px; right: 20px; background: #FFFFFF; color: #0F172A; border-radius: 16px; padding: 16px 18px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
-          <div style="flex: 1 1 160px">
-            <div style="font-size: 13px; color: #4B5873; font-weight: 600">Porsche Cayenne E-Hybrid · 2021</div>
-            <div style="font-size: 22px; font-weight: 800">R$ 489.900</div>
-          </div>
-          <span style="padding: 6px 10px; border-radius: 8px; background: #DDF3EA; color: #0B5E43; font-size: 13px; font-weight: 700">4% abaixo da FIPE</span>
-        </div>
+      <div class="chips" aria-label="Atalhos">
+        <a class="chip" href="busca.html">SUV</a>
+        <a class="chip" href="busca.html">Até R$ 100 mil</a>
+        <a class="chip" href="busca.html">Automático</a>
+        <a class="chip" href="busca.html">Abaixo da FIPE</a>
+        <a class="chip" href="busca.html">Perto de mim</a>
       </div>
     </div>
   </section>
 
-    <section style="background: #FFFFFF; border-bottom: 1px solid #E2E7F0">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 28px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
-      <div style="display: flex; gap: 14px; align-items: flex-start">
-        <span style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: #E8EEFA; color: #0E45AB; display: flex; align-items: center; justify-content: center">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m7 15 4-4 3 3 5-6"></path></svg>
-        </span>
-        <div><div style="font-weight: 700; font-size: 16px">Preço comparado com a FIPE</div><div style="font-size: 14px; color: #4B5873; line-height: 1.5">Todo anúncio mostra quanto está acima ou abaixo da tabela.</div></div>
-      </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start">
-        <span style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: #E8EEFA; color: #0E45AB; display: flex; align-items: center; justify-content: center">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </span>
-        <div><div style="font-weight: 700; font-size: 16px">Chat direto com a loja</div><div style="font-size: 14px; color: #4B5873; line-height: 1.5">Negocie sem expor seu telefone e receba aviso de cada resposta.</div></div>
-      </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start">
-        <span style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; background: #E8EEFA; color: #0E45AB; display: flex; align-items: center; justify-content: center">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-        </span>
-        <div><div style="font-weight: 700; font-size: 16px">Proteção desde o primeiro dia</div><div style="font-size: 14px; color: #4B5873; line-height: 1.5">Saia com o carro protegido pela Clube Autos, na mesma compra.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <main style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
-
-        <section aria-labelledby="cat-t" style="padding: 56px 0 8px">
-      <h2 id="cat-t" style="margin: 0 0 20px; font-size: 28px; font-weight: 800; letter-spacing: -0.01em">Encontre pelo tipo</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px">
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-5l6-7h18l8 7h10l4 5"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">Hatch</span>
-          </a>
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-4l10-1 6-6h14l8 6h10l4 5"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">Sedã</span>
-          </a>
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10l4-5h26l8 7h8l2 8"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">SUV</span>
-          </a>
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-6h22V7h12l6 7h10l2 6"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">Picape</span>
-          </a>
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V5h32l10 9h4l2 6"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">Utilitário</span>
-          </a>
-        
-          <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0F172A">
-            <svg aria-hidden="true" width="56" height="28" viewBox="0 0 56 28" fill="none" stroke="#0E45AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-3l14-4 8-4h12l10 6 8 2v3"></path><circle cx="15" cy="22" r="4"></circle><circle cx="42" cy="22" r="4"></circle></svg>
-            <span style="font-weight: 700; font-size: 15px">Esportivo</span>
-          </a>
-        
-      </div>
-    </section>
-
-        <section aria-labelledby="momento-t" style="padding: 48px 0 8px">
-      <h2 id="momento-t" style="margin: 0 0 20px; font-size: 28px; font-weight: 800; letter-spacing: -0.01em">Para cada momento</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px">
-        <a href="busca.html" style="background: #0A1A3A; color: #FFFFFF; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; min-height: 140px">
-          <span style="font-weight: 800; font-size: 19px">Primeiro carro</span>
-          <span style="font-size: 14px; color: #C9D4EA; line-height: 1.5">Hatches econômicos, seguro barato e parcela que cabe.</span>
-        </a>
-        <a href="busca.html" style="background: #0E45AB; color: #FFFFFF; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; min-height: 140px">
-          <span style="font-weight: 800; font-size: 19px">Família</span>
-          <span style="font-size: 14px; color: #DCE6FA; line-height: 1.5">SUVs e sedãs com porta-malas grande e itens de segurança.</span>
-        </a>
-        <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; min-height: 140px">
-          <span style="font-weight: 800; font-size: 19px">Trabalho por aplicativo</span>
-          <span style="font-size: 14px; color: #4B5873; line-height: 1.5">Carros aceitos por Uber e 99, com baixo consumo.</span>
-        </a>
-        <a href="busca.html" style="background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; min-height: 140px">
-          <span style="font-weight: 800; font-size: 19px">Trabalho pesado</span>
-          <span style="font-size: 14px; color: #4B5873; line-height: 1.5">Picapes, vans e utilitários para a sua empresa.</span>
-        </a>
-      </div>
-    </section>
-
-        <section aria-labelledby="ofertas-t" style="padding: 48px 0 8px">
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px">
+  <section class="section" aria-labelledby="ofertas-t">
+    <div class="wrap">
+      <div class="section-head reveal">
         <div>
-          <h2 id="ofertas-t" style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.01em">Ofertas abaixo da FIPE</h2>
-          <p style="margin: 6px 0 0; color: #4B5873; font-size: 15px">Carros anunciados por menos que o preço médio da tabela.</p>
+          <h2 class="h2" id="ofertas-t">Abaixo da FIPE esta semana</h2>
+          <p>Anúncios com preço menor que a média da tabela.</p>
         </div>
-        <a href="busca.html" style="font-weight: 700; font-size: 15px; text-decoration: none; display: flex; align-items: center; gap: 6px">Ver todas
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        <a class="link-arrow" href="busca.html">Ver todos
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px">
-        
-          <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-            <div style="position: relative">
-              <a href="veiculo.html" style="display: block"><img src="assets/c13.jpg" alt="Mercedes-Benz GL 63 AMG" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
-              <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">5% abaixo da FIPE</span>
-              <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-            </div>
-            <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
-              <div>
-                <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Mercedes-Benz GL 63 AMG</a>
-                <div style="font-size: 13px; color: #4B5873; margin-top: 2px">5.5 V8 Bi-Turbo 4x4 Aut.</div>
-              </div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
-                <span>2014</span><span>87.622 km</span><span>Novais, SP</span>
-              </div>
-              <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
-                <span style="font-size: 22px; font-weight: 800">R$ 255.000</span>
-                <span style="font-size: 12px; color: #4B5873">FIPE R$ 268.400</span>
-              </div>
-              <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 5.458/mês</strong> com 30% de entrada</div>
-            </div>
-          </article>
-        
-          <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-            <div style="position: relative">
-              <a href="veiculo.html" style="display: block"><img src="assets/c5.jpg" alt="Hyundai HB20 R spec" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
-              <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">5% abaixo da FIPE</span>
-              <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-            </div>
-            <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
-              <div>
-                <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Hyundai HB20 R spec</a>
-                <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.6 Flex 16V Aut.</div>
-              </div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
-                <span>2018</span><span>11.345 km</span><span>São José, SC</span>
-              </div>
-              <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
-                <span style="font-size: 22px; font-weight: 800">R$ 63.300</span>
-                <span style="font-size: 12px; color: #4B5873">FIPE R$ 66.900</span>
-              </div>
-              <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 1.355/mês</strong> com 30% de entrada</div>
-            </div>
-          </article>
-        
-          <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-            <div style="position: relative">
-              <a href="veiculo.html" style="display: block"><img src="assets/c11.jpg" alt="Fiat Ducato Cargo" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
-              <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">4% abaixo da FIPE</span>
-              <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-            </div>
-            <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
-              <div>
-                <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Fiat Ducato Cargo</a>
-                <div style="font-size: 13px; color: #4B5873; margin-top: 2px">2.3 Multijet Diesel</div>
-              </div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
-                <span>2021</span><span>92.000 km</span><span>Ribeirão Preto, SP</span>
-              </div>
-              <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
-                <span style="font-size: 22px; font-weight: 800">R$ 159.900</span>
-                <span style="font-size: 12px; color: #4B5873">FIPE R$ 166.000</span>
-              </div>
-              <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 3.423/mês</strong> com 30% de entrada</div>
-            </div>
-          </article>
-        
-          <article style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-            <div style="position: relative">
-              <a href="veiculo.html" style="display: block"><img src="assets/c2.jpg" alt="Renault Sandero Stepway" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #E9EEF6"></a>
-              <span style="position: absolute; left: 12px; top: 12px; padding: 5px 9px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #DDF3EA; color: #0B5E43">4% abaixo da FIPE</span>
-              <button aria-label="Favoritar" style="position: absolute; right: 10px; top: 10px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0F172A; display: flex; align-items: center; justify-content: center; cursor: pointer">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
-              </button>
-            </div>
-            <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
-              <div>
-                <a href="veiculo.html" style="color: #0F172A; text-decoration: none; font-weight: 800; font-size: 17px">Renault Sandero Stepway</a>
-                <div style="font-size: 13px; color: #4B5873; margin-top: 2px">1.6 16V Hi-Flex</div>
-              </div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: #4B5873; font-weight: 600">
-                <span>2010</span><span>50.122 km</span><span>Mauá da Serra, PR</span>
-              </div>
-              <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid #EEF1F6; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
-                <span style="font-size: 22px; font-weight: 800">R$ 29.700</span>
-                <span style="font-size: 12px; color: #4B5873">FIPE R$ 30.900</span>
-              </div>
-              <div style="font-size: 13px; color: #4B5873">ou <strong style="color: #0F172A">R$ 636/mês</strong> com 30% de entrada</div>
-            </div>
-          </article>
-        
-      </div>
-    </section>
+      <div class="grid" data-cars="1,3,4,2"></div>
+    </div>
+  </section>
 
-        <section id="vender" aria-labelledby="vender-t" style="margin: 64px 0 0; background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 28px; padding: 48px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
-      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-        <h2 id="vender-t" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.01em">Venda seu carro começando pela placa.</h2>
-        <p style="margin: 0; color: #4B5873; font-size: 16px; line-height: 1.6">Digite a placa e o anúncio já vem preenchido com marca, modelo, versão e o preço médio da FIPE. Você só confere, coloca as fotos e publica.</p>
-        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 999px; background: #0E45AB; color: #FFFFFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">1</span><span style="font-weight: 600">Informe a placa e a quilometragem</span></li>
-          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 999px; background: #0E45AB; color: #FFFFFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">2</span><span style="font-weight: 600">Compare seu preço com a FIPE</span></li>
-          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 32px; height: 32px; border-radius: 999px; background: #0E45AB; color: #FFFFFF; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">3</span><span style="font-weight: 600">Publique e responda pelo chat</span></li>
+  <section class="section" aria-labelledby="momento-t">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 class="h2" id="momento-t">Para cada momento</h2></div>
+      <div class="moments">
+        <a class="moment reveal" href="busca.html"><div><span class="h3">Primeiro carro</span><p>Hatches econômicos e parcela que cabe.</p></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+        <a class="moment reveal" href="busca.html"><div><span class="h3">Família</span><p>SUVs e sedãs com espaço e segurança.</p></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+        <a class="moment reveal" href="busca.html"><div><span class="h3">Aplicativo</span><p>Aceitos por Uber e 99, com baixo consumo.</p></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+        <a class="moment reveal" href="busca.html"><div><span class="h3">Trabalho</span><p>Picapes e utilitários para a sua empresa.</p></div><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vender" aria-labelledby="vender-t">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="eyebrow">Vender</p>
+        <h2 class="h2" id="vender-t">Seu anúncio começa pela placa.</h2>
+        <p class="lead" style="margin-top:16px">Marca, modelo, versão e preço da FIPE já vêm preenchidos. Você confere, coloca as fotos e publica.</p>
+        <ol class="steps">
+          <li><b>01</b><div><strong>Informe a placa e a quilometragem</strong><span>Sem digitar ficha técnica.</span></div></li>
+          <li><b>02</b><div><strong>Compare seu preço com a FIPE</strong><span>E com carros iguais anunciados aqui.</span></div></li>
+          <li><b>03</b><div><strong>Publique e responda pelo chat</strong><span>Avisos no celular a cada mensagem.</span></div></li>
         </ol>
       </div>
-      <div style="flex: 1 1 360px; min-width: 0; background: #F4F6FB; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px; align-items: stretch">
-        <label style="align-self: center; display: flex; flex-direction: column; border: 3px solid #0F172A; border-radius: 12px; overflow: hidden; width: 280px; background: #FFFFFF">
-          <span style="background: #0E45AB; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-align: center; padding: 4px 0">BRASIL</span>
-          <input type="text" value="ABC1D23" aria-label="Placa do veículo" style="border: none; outline: none; text-align: center; font-family: inherit; font-size: 40px; font-weight: 800; letter-spacing: 0.08em; padding: 8px 0; color: #0F172A">
-        </label>
-        <div style="background: #FFFFFF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
-          <div style="font-size: 13px; color: #4B5873; font-weight: 600">Encontramos</div>
-          <div style="font-weight: 800; font-size: 17px">Hyundai HB20 R spec 1.6 Flex Aut. · 2018</div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #4B5873">Preço médio FIPE</span><span style="font-weight: 800">R$ 66.900</span></div>
+      <div class="plate-demo reveal">
+        <label class="plate"><span>BRASIL</span><input type="text" value="ABC1D23" data-typing="ABC1D23" aria-label="Placa do veículo" maxlength="7"></label>
+        <div class="found" data-found>
+          <span class="muted" style="font-size:13px;font-weight:600">Encontramos</span>
+          <div style="font-weight:800;font-size:18px">Hyundai Creta 1.0 Turbo Platinum · 2023</div>
+          <div class="row"><span class="muted">Preço médio FIPE</span><strong>R$ 136.500</strong></div>
+          <div class="row"><span class="muted">Média no Comprautos</span><strong>R$ 132.800</strong></div>
         </div>
-        <a href="#vender" style="min-height: 52px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; text-decoration: none">Continuar anúncio</a>
+        <a class="btn btn-primary btn-block" href="#vender">Continuar anúncio</a>
       </div>
-    </section>
-
-        <section aria-labelledby="marcas-t" style="padding: 64px 0 8px">
-      <h2 id="marcas-t" style="margin: 0 0 20px; font-size: 28px; font-weight: 800; letter-spacing: -0.01em">Marcas mais buscadas</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px">
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Chevrolet</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Volkswagen</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Fiat</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Toyota</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Hyundai</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Jeep</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Renault</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Honda</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Nissan</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Ford</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">BMW</a>
-        
-          <a href="busca.html" style="padding: 12px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E7F0; color: #0F172A; font-weight: 700; font-size: 15px; text-decoration: none">Mercedes-Benz</a>
-        
-      </div>
-    </section>
-
-        <section id="lojas" aria-labelledby="lojas-t" style="padding: 64px 0 8px">
-      <div style="background: #0A1A3A; color: #FFFFFF; border-radius: 28px; padding: 48px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-          <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 13px; font-weight: 600">Para lojistas</span>
-          <h2 id="lojas-t" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800">Sua loja com site próprio, sem custo de desenvolvimento.</h2>
-          <p style="margin: 0; color: #C9D4EA; font-size: 16px; line-height: 1.6">Cada loja parceira ganha um site com a sua marca, no seu domínio ou em sualoja.comprautos.com.br. O estoque aparece no site, no marketplace e pode ir para OLX e Mercado Livre.</p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap">
-            <a href="#lojas" style="min-height: 48px; padding: 0 20px; border-radius: 12px; background: #FFFFFF; color: #0A1A3A; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none">Quero minha loja</a>
-            <a href="#lojas" style="min-height: 48px; padding: 0 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none">Ver planos</a>
-          </div>
-        </div>
-        <div style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; color: #0F172A; border-radius: 18px; overflow: hidden">
-          <div style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #EEF1F6">
-            <span style="width: 10px; height: 10px; border-radius: 999px; background: #C3CCDB"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #C3CCDB"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #C3CCDB"></span>
-            <span style="margin-left: 8px; padding: 4px 10px; border-radius: 8px; background: #FFFFFF; font-size: 12px; color: #4B5873; font-weight: 600">cabral.comprautos.com.br</span>
-          </div>
-          <div style="padding: 18px; display: flex; flex-direction: column; gap: 14px">
-            <div style="display: flex; align-items: center; gap: 12px">
-              <span style="width: 44px; height: 44px; border-radius: 12px; background: #B91C1C; color: #FFFFFF; font-weight: 800; display: flex; align-items: center; justify-content: center">C</span>
-              <div><div style="font-weight: 800">Cabral Automóveis</div><div style="font-size: 13px; color: #4B5873">Catanduva, SP · 2 lojas</div></div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
-              <img src="assets/c13.jpg" alt="" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block">
-              <img src="assets/c7.jpg" alt="" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block">
-              <img src="assets/c15.jpg" alt="" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <section id="protecao" aria-labelledby="prot-t" style="padding: 64px 0 72px">
-      <div style="background: #FFFFFF; border: 1px solid #E2E7F0; border-radius: 28px; padding: 40px 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
-        <span style="flex: 0 0 auto; width: 72px; height: 72px; border-radius: 20px; background: #E8EEFA; color: #0E45AB; display: flex; align-items: center; justify-content: center">
-          <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-        </span>
-        <div style="flex: 1 1 360px; min-width: 0">
-          <h2 id="prot-t" style="margin: 0 0 6px; font-size: 26px; font-weight: 800">Proteja seu próximo carro com a Clube Autos</h2>
-          <p style="margin: 0; color: #4B5873; font-size: 15px; line-height: 1.6">Proteção veicular para carros, utilitários e caminhões. Faça a cotação junto com a compra e saia da loja protegido.</p>
-        </div>
-        <a href="#protecao" style="min-height: 52px; padding: 0 24px; border-radius: 12px; background: #0E45AB; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; text-decoration: none">Fazer cotação</a>
-      </div>
-    </section>
-  </main>
-
-    <footer style="background: #0A1A3A; color: #C9D4EA">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px">
-      <div style="display: flex; flex-direction: column; gap: 12px">
-        <img src="assets/logo-white.svg" alt="Comprautos" style="height: 22px; width: auto; align-self: flex-start">
-        <p style="margin: 0; font-size: 14px; line-height: 1.6">Marketplace de seminovos com preço comparado à FIPE.</p>
-      </div>
-      <nav aria-label="Comprar" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
-        <span style="color: #FFFFFF; font-weight: 700">Comprar</span>
-        <a href="busca.html" style="color: #C9D4EA; text-decoration: none">Carros usados</a>
-        <a href="busca.html" style="color: #C9D4EA; text-decoration: none">Abaixo da FIPE</a>
-        <a href="#fipe" style="color: #C9D4EA; text-decoration: none">Tabela FIPE</a>
-      </nav>
-      <nav aria-label="Vender" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
-        <span style="color: #FFFFFF; font-weight: 700">Vender</span>
-        <a href="#vender" style="color: #C9D4EA; text-decoration: none">Anunciar meu carro</a>
-        <a href="#lojas" style="color: #C9D4EA; text-decoration: none">Para lojistas</a>
-        <a href="#lojas" style="color: #C9D4EA; text-decoration: none">Planos</a>
-      </nav>
-      <nav aria-label="Comprautos" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
-        <span style="color: #FFFFFF; font-weight: 700">Comprautos</span>
-        <a href="#protecao" style="color: #C9D4EA; text-decoration: none">Proteção veicular</a>
-        <a href="#ajuda" style="color: #C9D4EA; text-decoration: none">Ajuda</a>
-        <a href="#privacidade" style="color: #C9D4EA; text-decoration: none">Privacidade</a>
-      </nav>
     </div>
-    <div style="max-width: 1240px; margin: 0 auto; padding: 20px 24px 32px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px">© Comprautos. Uma empresa MaquinaWeb.</div>
-  </footer>
-</div>
+  </section>
+
+  <section class="section" id="lojas" aria-labelledby="lojas-t">
+    <div class="wrap">
+      <div class="dark split reveal">
+        <div>
+          <p class="eyebrow">Para lojistas</p>
+          <h2 class="h2" id="lojas-t">Sua loja com site próprio, pronto no mesmo dia.</h2>
+          <p class="lead" style="margin-top:16px">Cada loja parceira ganha um site com a própria marca, no seu domínio ou em sualoja.comprautos.com.br. O estoque aparece no site, no marketplace e pode ir para OLX e Mercado Livre.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+            <a class="btn btn-white" href="#lojas">Quero minha loja</a>
+            <a class="btn btn-ghost" href="#lojas" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)">Ver planos</a>
+          </div>
+        </div>
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>cabral.comprautos.com.br</span></div>
+          <div class="browser-body">
+            <div class="browser-head"><span class="store-logo">C</span><div><strong>Cabral Automóveis</strong><div class="muted" style="font-size:13px">Catanduva, SP</div></div></div>
+            <img src="assets/v2/suv-preto.jpg" alt="">
+            <img src="assets/v2/picape-grafite.jpg" alt="">
+            <img src="assets/v2/hatch-branco.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="protecao" aria-labelledby="prot-t">
+    <div class="wrap">
+      <div class="protect reveal">
+        <span class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div><h2 class="h3" id="prot-t" style="font-size:24px">Saia com o carro protegido pela Clube Autos</h2><p>Proteção veicular para carros, utilitários e caminhões, cotada junto com a compra.</p></div>
+        <a class="btn btn-primary" href="#protecao">Fazer cotação</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><img src="assets/logo.svg" alt="Comprautos" style="height:20px;width:auto"><p class="muted" style="font-size:14px;margin:14px 0 0;max-width:260px">Seminovos com preço comparado à FIPE e chat direto com a loja.</p></div>
+      <nav aria-label="Comprar"><h4>Comprar</h4><a href="busca.html">Carros usados</a><a href="busca.html">Abaixo da FIPE</a><a href="#fipe">Tabela FIPE</a></nav>
+      <nav aria-label="Vender"><h4>Vender</h4><a href="#vender">Anunciar meu carro</a><a href="#lojas">Para lojistas</a><a href="#lojas">Planos</a></nav>
+      <nav aria-label="Comprautos"><h4>Comprautos</h4><a href="#protecao">Proteção veicular</a><a href="#ajuda">Ajuda</a><a href="#privacidade">Privacidade</a></nav>
+    </div>
+    <small>Prévia de layout. Anúncios, preços e lojas são exemplos; fotos ilustrativas geradas por IA.</small>
+  </div>
+</footer>
+
 <script src="app.js"></script>
 </body>
 </html>
