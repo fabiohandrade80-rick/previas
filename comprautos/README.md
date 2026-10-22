@@ -20,3 +20,7 @@ Fotos Unsplash:
 - https://images.unsplash.com/photo-1642047826426-a9d091ddca6e
 - https://images.unsplash.com/photo-1555215695-3004980ad54e
 - https://images.unsplash.com/photo-1503376780353-7e6692767b70
+
+## Transições e acessibilidade
+
+Entrada progressiva de seções e cartões ao rolar, transições entre telas, abertura e fechamento de diálogos e feedback nos favoritos. Implementação com CSS e APIs nativas, sem bibliotecas adicionais. A preferência `prefers-reduced-motion` desativa os efeitos. Conteúdo permanece disponível quando as APIs de animação não são suportadas.
