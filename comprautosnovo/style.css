@@ -379,6 +379,8 @@ button, input, select { font: inherit; color: inherit; }
   .hero-card { grid-template-columns: 1fr; min-height: 0; }
   .hero-copy { padding: 40px 28px 8px; }
   .hero-photo { min-height: 300px; }
+  .hero-photo img { -webkit-mask-image: none; mask-image: none; }
+  .hero-tag { display: none; }
   .fields { grid-template-columns: 1fr 1fr; }
   .fields .field:first-child { grid-column: 1 / -1; }
   .fields .btn { grid-column: 1 / -1; min-height: 52px; }
