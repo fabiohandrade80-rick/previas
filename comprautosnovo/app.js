@@ -140,7 +140,11 @@
                  (!state.good || el.getAttribute('data-good') === 'true');
         if (ok) {
           shown++;
-          if (el.hidden) { el.hidden = false; el.classList.add('is-out'); requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.remove('is-out'); }); }); }
+          el.classList.add('is-in');
+          if (el.hidden || el.classList.contains('is-out')) {
+            el.hidden = false; el.classList.add('is-out');
+            setTimeout(function () { el.classList.remove('is-out'); }, 20);
+          }
         } else if (!el.hidden) {
           el.classList.add('is-out');
           setTimeout(function () { if (el.classList.contains('is-out')) el.hidden = true; }, 340);
