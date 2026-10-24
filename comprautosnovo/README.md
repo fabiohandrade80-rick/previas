@@ -1,21 +1,32 @@
-# Comprautos — novo layout (proposta 2)
+# Comprautos — novo visual (versão combinada)
 
-Protótipo navegável de um novo front para o Comprautos, mantendo a logo atual. Três telas: `index.html` (início), `busca.html` (resultados com filtros) e `veiculo.html` (página do carro).
+Junção das duas propostas, conforme a opinião da equipe: início, busca, favoritos, vender e lojistas seguem o layout de `../comprautos/`; a página do veículo é a da proposta 2 (galeria com troca suave, comparação com a FIPE e com a média do Comprautos, cartão da loja, chat e simulador de parcelas sem cadastro).
 
-## Visual
+Para regerar as páginas depois de mudar `app.js`, `inventory.json` ou o template: `node tools/build-site.mjs` e `node tools/check-seo.mjs`.
 
-Layout claro, com bastante respiro, sem caixas e bordas pesadas. Fotos de estúdio no mesmo estilo em todos os anúncios. Fonte Plus Jakarta Sans. Azul da logo (#0E45AB) como única cor de destaque, e verde só para o sinal de preço abaixo da FIPE.
+## Apresentação
 
-## Animações
+Abra `index.html` ou acesse a pasta `/comprautosnovo/` no GitHub Pages deste repositório.
 
-- Entrada do topo em sequência e seções que aparecem suavemente ao rolar.
-- Cabeçalho que ganha fundo desfocado ao rolar.
-- Abas Comprar/Vender com indicador deslizante e troca suave do formulário.
-- Placa que se digita sozinha na seção Vender e mostra o resultado.
-- Cartões com zoom na foto ao passar o mouse e favorito com efeito.
-- Filtros da busca que tiram e trazem os cartões com transição.
-- Transição entre páginas (View Transitions): a foto do cartão "voa" até a galeria do veículo no Chrome e no Edge.
-- Galeria com troca suave, barra de comparação com a FIPE que enche ao aparecer e simulador com o valor da parcela contando até o novo número.
-- Tudo respeita `prefers-reduced-motion`.
+Inclui início, busca com filtros, favoritos, comparação de até três veículos, detalhes, contato demonstrativo e páginas para vendedores e lojistas. O layout adapta-se a computador e celular.
 
-Anúncios, preços, cidades e lojas são exemplos. Fotos geradas por IA para esta proposta. O simulador usa uma taxa de exemplo de 1,69% a.m. e não representa oferta de crédito.
+Os anúncios, preços e anunciantes são ilustrativos. O protótipo não utiliza o backend de produção. Formulários não enviam mensagens nem armazenam dados pessoais. Favoritos são salvos apenas no navegador.
+
+A visualização de parcelas é uma divisão simples do saldo, sem juros, tarifas ou impostos; não representa uma oferta de financiamento.
+
+## Recursos visuais
+
+Logo: Comprautos, fornecida no projeto original. Fotografia principal gerada por IA para esta proposta. Fotos de veículos: recurso do projeto original e imagens ilustrativas do Unsplash. Fonte: Manrope.
+
+Fotos Unsplash:
+- https://images.unsplash.com/photo-1642047826426-a9d091ddca6e
+- https://images.unsplash.com/photo-1555215695-3004980ad54e
+- https://images.unsplash.com/photo-1503376780353-7e6692767b70
+
+## Transições e acessibilidade
+
+Entrada progressiva de seções e cartões ao rolar, transições entre telas, abertura e fechamento de diálogos e feedback nos favoritos. Implementação com CSS e APIs nativas, sem bibliotecas adicionais. A preferência `prefers-reduced-motion` desativa os efeitos. Conteúdo permanece disponível quando as APIs de animação não são suportadas.
+
+## SEO e SEM
+
+Domínio oficial preparado: https://comprautos.com.br/. A prévia permanece com noindex. Consulte [SEO-SEM.md](SEO-SEM.md) para gerar as páginas, validar e preparar a implantação oficial com anúncios reais e mensuração.

@@ -1,0 +1,23 @@
+{
+  "siteName": "Comprautos",
+  "locale": "pt-BR",
+  "previewBaseUrl": "https://fabiohandrade80-rick.github.io/previas/comprautosnovo/",
+  "productionBaseUrl": "https://comprautos.com.br/",
+  "productionContentVerified": false,
+  "organization": {
+    "name": "Comprautos",
+    "legalName": null,
+    "phone": null,
+    "email": null,
+    "sameAs": []
+  },
+  "measurement": {
+    "ga4Id": null,
+    "googleAdsId": null,
+    "googleAdsLeadLabel": null
+  },
+  "verification": {
+    "googleSearchConsole": null,
+    "bingWebmasterTools": null
+  }
+}

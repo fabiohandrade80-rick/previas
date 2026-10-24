@@ -1,231 +1,56 @@
-// Prévia Comprautos: estoque de exemplo, cartões, filtros e animações.
-(function () {
-  'use strict';
-
-  var cars = [
-    { id: 1, img: 'assets/v2/suv-azul.jpg', name: 'Hyundai Creta', version: '1.0 Turbo Platinum Aut.', year: 2023, km: 28400, city: 'Catanduva, SP', price: 129900, fipe: 136500, body: 'suv', gear: 'auto' },
-    { id: 2, img: 'assets/v2/sedan-prata.jpg', name: 'Toyota Corolla', version: '2.0 XEi Flex Aut.', year: 2021, km: 46200, city: 'Ribeirão Preto, SP', price: 118500, fipe: 121300, body: 'sedan', gear: 'auto' },
-    { id: 3, img: 'assets/v2/hatch-vermelho.jpg', name: 'Volkswagen Polo', version: '1.0 TSI Highline Aut.', year: 2022, km: 31000, city: 'São José do Rio Preto, SP', price: 89900, fipe: 94200, body: 'hatch', gear: 'auto' },
-    { id: 4, img: 'assets/v2/picape-grafite.jpg', name: 'Toyota Hilux', version: '2.8 SRV 4x4 Diesel Aut.', year: 2020, km: 88000, city: 'Barretos, SP', price: 219000, fipe: 226800, body: 'picape', gear: 'auto' },
-    { id: 5, img: 'assets/v2/suv-preto.jpg', name: 'Jeep Commander', version: '2.0 Overland 4x4 Diesel', year: 2023, km: 22500, city: 'São Paulo, SP', price: 219900, fipe: 224100, body: 'suv', gear: 'auto' },
-    { id: 6, img: 'assets/v2/hatch-branco.jpg', name: 'Chevrolet Onix', version: '1.0 LT Flex Manual', year: 2021, km: 52300, city: 'Catanduva, SP', price: 67900, fipe: 69800, body: 'hatch', gear: 'manual' },
-    { id: 7, img: 'assets/v2/hero.jpg', name: 'Volkswagen T-Cross', version: '1.4 TSI Highline Aut.', year: 2022, km: 35800, city: 'Araraquara, SP', price: 132900, fipe: 131000, body: 'suv', gear: 'auto' },
-    { id: 8, img: 'assets/v2/sedan-prata.jpg', name: 'Honda City', version: '1.5 EXL Sedan CVT', year: 2022, km: 40100, city: 'Bauru, SP', price: 104900, fipe: 108700, body: 'sedan', gear: 'auto' }
-  ];
-
-  var brl = function (n) { return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); };
-  var monthly = function (price, n) { var r = 0.0169; return price * 0.7 * r / (1 - Math.pow(1 + r, -n)); };
-  var heart = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
-
-  var favs = [];
-  try { favs = JSON.parse(localStorage.getItem('ca-favs') || '[]'); } catch (e) { favs = []; }
-  function saveFavs() { try { localStorage.setItem('ca-favs', JSON.stringify(favs)); } catch (e) {} }
-  function updateFavCount() {
-    document.querySelectorAll('[data-fav-count]').forEach(function (el) {
-      el.textContent = favs.length;
-      if (favs.length) el.removeAttribute('data-zero'); else el.setAttribute('data-zero', '');
-    });
-  }
-
-  function card(c) {
-    var pct = Math.round((1 - c.price / c.fipe) * 100);
-    var badge = pct > 0 ? '<span class="badge good">' + pct + '% abaixo da FIPE</span>' : '<span class="badge">Na média da FIPE</span>';
-    var on = favs.indexOf(c.id) > -1;
-    return '<article class="car reveal" data-id="' + c.id + '" data-body="' + c.body + '" data-gear="' + c.gear + '" data-good="' + (pct > 0) + '">' +
-      '<a class="car-media" href="veiculo.html" data-car-link>' +
-        '<img src="' + c.img + '" alt="' + c.name + ' ' + c.year + '" loading="lazy">' + badge +
-      '</a>' +
-      '<button class="fav" type="button" aria-label="Favoritar ' + c.name + '" aria-pressed="' + on + '">' + heart + '</button>' +
-      '<a class="car-body" href="veiculo.html" data-car-link style="color:inherit">' +
-        '<span class="car-title">' + c.name + '</span>' +
-        '<span class="car-meta">' + c.version + '</span>' +
-        '<span class="car-meta">' + c.year + ' · ' + c.km.toLocaleString('pt-BR') + ' km · ' + c.city + '</span>' +
-        '<span class="car-price"><strong>' + brl(c.price) + '</strong><span>FIPE ' + brl(c.fipe) + '</span></span>' +
-        '<span class="car-month">ou <b>' + brl(monthly(c.price, 48)) + '/mês</b> com 30% de entrada</span>' +
-      '</a>' +
-    '</article>';
-  }
-
-  document.querySelectorAll('[data-cars]').forEach(function (box) {
-    var list = cars;
-    var pick = box.getAttribute('data-cars');
-    if (pick) list = pick.split(',').map(function (id) { return cars.filter(function (c) { return c.id === Number(id); })[0]; });
-    box.innerHTML = list.map(card).join('');
-  });
-
-  // Favoritos com animação
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.fav');
-    if (!btn) return;
-    var id = Number(btn.closest('.car').getAttribute('data-id'));
-    var i = favs.indexOf(id);
-    if (i > -1) favs.splice(i, 1); else favs.push(id);
-    btn.setAttribute('aria-pressed', String(i === -1));
-    btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop');
-    saveFavs(); updateFavCount();
-  });
-  updateFavCount();
-
-  // Foto do cartão "voa" até a galeria do veículo (View Transitions entre páginas)
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest('[data-car-link]');
-    if (!link) return;
-    var img = link.closest('.car').querySelector('.car-media img');
-    if (img) img.style.viewTransitionName = 'car-photo';
-  });
-  window.addEventListener('pageshow', function () {
-    document.querySelectorAll('.car-media img').forEach(function (img) { img.style.viewTransitionName = ''; });
-  });
-
-  // Cabeçalho ganha fundo ao rolar
-  var header = document.querySelector('.header');
-  function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-
-  // Entrada suave ao rolar
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }) : null;
-  function observe(root) {
-    (root || document).querySelectorAll('.reveal:not(.is-in)').forEach(function (el) {
-      var sib = Array.prototype.indexOf.call(el.parentElement.children, el);
-      if (el.classList.contains('car') || el.classList.contains('moment')) el.style.setProperty('--d', (sib % 4) * 80 + 'ms');
-      if (io) io.observe(el); else el.classList.add('is-in');
-    });
-  }
-  observe();
-
-  // Abas comprar / vender com indicador deslizante
-  var seg = document.querySelector('.seg');
-  if (seg) {
-    seg.addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
-      var tab = b.getAttribute('data-tab');
-      seg.setAttribute('data-active', tab);
-      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-selected', String(x === b)); });
-      document.querySelectorAll('.panel').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== tab; });
-    });
-  }
-
-  // Placa digitando sozinha na seção Vender
-  var typing = document.querySelector('[data-typing]');
-  if (typing && io) {
-    var plateIo = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      plateIo.disconnect();
-      var text = typing.getAttribute('data-typing'), i = 0;
-      typing.value = '';
-      var t = setInterval(function () {
-        typing.value = text.slice(0, ++i);
-        if (i >= text.length) {
-          clearInterval(t);
-          var f = document.querySelector('[data-found]');
-          if (f) f.classList.add('is-in');
-        }
-      }, 140);
-    }, { threshold: 0.6 });
-    plateIo.observe(typing);
-  }
-
-  // Filtros da busca com saída animada dos cartões
-  var results = document.querySelector('[data-results]');
-  if (results) {
-    var state = { body: null, gear: null, good: false };
-    var countEl = document.querySelector('[data-count]');
-    function apply() {
-      var shown = 0;
-      results.querySelectorAll('.car').forEach(function (el) {
-        var ok = (!state.body || el.getAttribute('data-body') === state.body) &&
-                 (!state.gear || el.getAttribute('data-gear') === state.gear) &&
-                 (!state.good || el.getAttribute('data-good') === 'true');
-        if (ok) {
-          shown++;
-          el.classList.add('is-in');
-          if (el.hidden || el.classList.contains('is-out')) {
-            el.hidden = false; el.classList.add('is-out');
-            setTimeout(function () { el.classList.remove('is-out'); }, 20);
-          }
-        } else if (!el.hidden) {
-          el.classList.add('is-out');
-          setTimeout(function () { if (el.classList.contains('is-out')) el.hidden = true; }, 340);
-        }
-      });
-      if (countEl) countEl.textContent = shown;
-      var empty = document.querySelector('[data-empty]');
-      if (empty) empty.hidden = shown > 0;
-    }
-    document.querySelectorAll('[data-filter]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var key = b.getAttribute('data-filter'), val = b.getAttribute('data-value');
-        state[key] = state[key] === val ? null : val;
-        document.querySelectorAll('[data-filter="' + key + '"]').forEach(function (x) {
-          x.setAttribute('aria-pressed', String(state[key] === x.getAttribute('data-value')));
-        });
-        apply();
-      });
-    });
-    var good = document.querySelector('[data-good-toggle]');
-    if (good) good.addEventListener('change', function () { state.good = good.checked; apply(); });
-    var opener = document.querySelector('.filter-open');
-    if (opener) opener.addEventListener('click', function () {
-      var f = document.querySelector('.filters');
-      var open = f.classList.toggle('is-open');
-      opener.setAttribute('aria-expanded', String(open));
-    });
-    apply();
-  }
-
-  // Galeria com troca suave
-  var stage = document.querySelector('.stage img');
-  document.querySelectorAll('.thumbs button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      if (b.getAttribute('aria-current') === 'true') return;
-      document.querySelectorAll('.thumbs button').forEach(function (x) { x.setAttribute('aria-current', String(x === b)); });
-      stage.classList.add('is-leaving');
-      setTimeout(function () {
-        stage.src = b.getAttribute('data-src');
-        stage.style.transformOrigin = b.getAttribute('data-pos') || '50% 50%';
-        stage.style.transform = 'scale(' + (b.getAttribute('data-zoom') || 1) + ')';
-        stage.classList.remove('is-leaving');
-      }, 220);
-    });
-  });
-
-  // Barra de comparação com a FIPE enche ao aparecer
-  document.querySelectorAll('.meter').forEach(function (m) {
-    if (!io) { m.classList.add('is-in'); return; }
-    var mo = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { m.classList.add('is-in'); mo.disconnect(); } }, { threshold: 0.6 });
-    mo.observe(m);
-  });
-
-  // Simulador: indicador desliza e o valor conta até o novo número
-  var terms = document.querySelector('.terms');
-  if (terms) {
-    var price = Number(terms.getAttribute('data-price'));
-    var out = document.querySelector('[data-installment]');
-    var label = document.querySelector('[data-months-label]');
-    var ind = terms.querySelector('.terms-ind');
-    var current = monthly(price, 48);
-    var raf;
-    function tween(to) {
-      var from = current, start = performance.now(), dur = 500;
-      cancelAnimationFrame(raf);
-      (function step(now) {
-        var t = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - t, 3);
-        current = from + (to - from) * e;
-        out.textContent = brl(current);
-        if (t < 1) raf = requestAnimationFrame(step);
-      })(start);
-    }
-    terms.querySelectorAll('button').forEach(function (b, i) {
-      b.addEventListener('click', function () {
-        var n = Number(b.getAttribute('data-months'));
-        terms.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-        ind.style.transform = 'translateX(' + (i * 100) + '%)';
-        label.textContent = n + ' parcelas de';
-        tween(monthly(price, n));
-      });
-    });
-    out.textContent = brl(current);
-  }
+(function comprautosPrototype(){
+'use strict';
+const app=document.querySelector('#app');
+const icon=(name,cls='')=>`<svg class="ico ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const number=n=>new Intl.NumberFormat('pt-BR').format(n);
+const money=n=>`<small>R$</small> ${number(n)}`;
+const data=window.comprautosSite?.inventory||[];
+let favorites=[];try{favorites=JSON.parse(localStorage.getItem('comprautos-concept-favorites')||'[]').filter(id=>data.some(c=>c.id===id))}catch{}
+let compare=[];let currentLocation='São Paulo, SP';let toastTimer;let userName='';
+const basePath=document.querySelector('meta[name="app-base"]')?.getAttribute('content')||'/';
+const knownRoute=/^(inicio|comprar|favoritos|vender|lojistas|veiculo\/\d+)(?:\?|$)/;
+const legacy=()=>knownRoute.test(location.hash.slice(1))?location.hash.slice(1):'';
+const params=()=>new URLSearchParams(legacy()?(legacy().split('?')[1]||''):location.search);
+const route=()=>legacy()?legacy().split('?')[0]:(decodeURIComponent(location.pathname.slice(basePath.length)).replace(/\/$/,'')||'inicio');
+const campaign=new URLSearchParams([...new URLSearchParams(location.search)].filter(([key])=>/^(utm_(source|medium|campaign|term|content)|gclid|gbraid|wbraid)$/.test(key)));
+function routeURL(path,p={}){const u=new URL(basePath+(path==='inicio'?'':path.replace(/\/$/,'')+'/'),location.origin);for(const [k,v] of campaign)u.searchParams.set(k,v);for(const [k,v] of Object.entries(p))if(v!=='')u.searchParams.set(k,v);return u.pathname+u.search}
+function updateLinks(){document.querySelectorAll('a[href^="#"]').forEach(a=>{const raw=a.getAttribute('href').slice(1);if(knownRoute.test(raw))a.setAttribute('href',routeURL(raw.split('?')[0],Object.fromEntries(new URLSearchParams(raw.split('?')[1]||''))))})}
+function renderRoute(){if(window.comprautosMotion)window.comprautosMotion.navigate(()=>render());else render()}
+const go=(path,p={})=>{const url=routeURL(path,p);if(location.pathname+location.search!==url)history.pushState(null,'',url);renderRoute()};
+function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3300)}
+function modal(content,wide=false){const dialog=document.querySelector('#modal');dialog.classList.toggle('wide',wide);document.querySelector('#modal-content').innerHTML=content;if(!dialog.open)dialog.showModal()}
+function closeModal(){document.querySelector('#modal').close()}
+function updateFavorites(){document.querySelector('#fav-count').textContent=favorites.length;document.querySelector('#fav-count').hidden=!favorites.length;document.querySelectorAll('[data-fav]').forEach(btn=>{const active=favorites.includes(+btn.dataset.fav);btn.classList.toggle('is-favorite',active);btn.setAttribute('aria-pressed',active);btn.setAttribute('aria-label',active?'Remover dos favoritos':'Adicionar aos favoritos')})}
+function toggleFavorite(id){if(favorites.includes(id)){favorites=favorites.filter(x=>x!==id);toast('Veículo removido dos favoritos.')}else{favorites.push(id);toast('Salvo nos seus favoritos. Boa escolha!')}try{localStorage.setItem('comprautos-concept-favorites',JSON.stringify(favorites))}catch{}if(route()==='favoritos')render(false);updateFavorites()}
+function updateCompare(){const tray=document.querySelector('#compare-tray');tray.hidden=!compare.length;tray.innerHTML=`${icon('compare')}<div><b>${compare.length} veículo${compare.length>1?'s':''} para comparar</b><small>Selecione até 3 e encontre a sua melhor escolha.</small></div><button class="btn" data-compare-open ${compare.length<2?'disabled':''}>Comparar ${icon('arrow')}</button><button class="icon-button" data-clear-compare aria-label="Limpar comparação">${icon('close')}</button>`;document.querySelectorAll('[data-compare]').forEach(el=>el.checked=compare.includes(+el.dataset.compare))}
+function card(c){return `<article class="car-card"><div class="car-photo"><a href="#veiculo/${c.id}" aria-label="Ver ${c.brand} ${c.model}"><img src="assets/${c.image}" alt="Foto ilustrativa de ${c.brand} ${c.model}" loading="lazy" width="600" height="400"></a><span class="photo-label">${c.tag}</span><button class="icon-button photo-favorite ${favorites.includes(c.id)?'is-favorite':''}" data-fav="${c.id}" aria-label="Adicionar aos favoritos" aria-pressed="${favorites.includes(c.id)}">${icon('heart')}</button></div><div class="car-content"><a href="#veiculo/${c.id}"><div class="car-heading"><h3>${c.brand} ${c.model}</h3></div><p class="version">${c.version}</p><div class="car-meta"><span>${c.year}/${c.year}</span><span>${number(c.km)} km</span><span>Automático</span></div><div class="car-price">${money(c.price)}</div><p class="car-reference">Referência de preço no detalhe ${icon('up')}</p></a><div class="car-bottom"><span>${icon('pin')}${c.city.split(',')[0]}, SP</span><label class="compare-check"><input type="checkbox" data-compare="${c.id}" ${compare.includes(c.id)?'checked':''}>Comparar</label></div></div></article>`}
+function home(){return `<section class="hero"><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">NOVOS CAMINHOS COMEÇAM AQUI</div><h1>Seu próximo carro.<br>Sua próxima<br><strong>história.</strong></h1><p>Encontre o carro que combina com a sua vida.<br>Da primeira busca à próxima grande escolha.</p><a href="#comprar" class="hero-link">Vamos encontrar o seu ${icon('arrow')}</a></div><div class="hero-visual"><img class="hero-photo" src="assets/hero.webp" alt="SUV branco em uma praça de arquitetura contemporânea" fetchpriority="high" width="1536" height="1024"><span class="hero-image-label">Imagem conceitual</span><div class="hero-stamp"><span>${icon('up')}</span><div><b>Mais do que trocar de carro.</b><small>É dar o próximo passo.</small></div></div></div></div></section>
+<div class="wrap search-wrap"><div class="search-panel"><div class="search-tabs"><button class="search-tab active" data-home-tab="carros">${icon('car')} Comprar carro</button><a class="search-tab" href="#vender">Vender meu carro</a><a class="text-link" href="#comprar">Explore todas as possibilidades ${icon('up')}</a></div><form id="home-search" class="search-fields"><label class="search-field"><span>QUAL MARCA?</span><select name="brand" aria-label="Marca"><option value="">Todas as marcas</option>${[...new Set(data.map(c=>c.brand))].map(b=>`<option>${b}</option>`).join('')}</select></label><label class="search-field"><span>QUAL MODELO?</span><select name="model" aria-label="Modelo"><option value="">Todos os modelos</option>${[...new Set(data.map(c=>c.model))].map(m=>`<option>${m}</option>`).join('')}</select></label><label class="search-field"><span>ATÉ QUANTO?</span><select name="max" aria-label="Preço máximo"><option value="">Qualquer valor</option><option value="150000">Até R$ 150 mil</option><option value="250000">Até R$ 250 mil</option><option value="400000">Até R$ 400 mil</option><option value="650000">Até R$ 650 mil</option></select></label><label class="search-field"><span>ONDE VOCÊ PROCURA?</span><select name="city" aria-label="Localização"><option value="">Todo o Brasil</option><option>São Paulo, SP</option><option>Campinas, SP</option><option>Santos, SP</option></select></label><button class="btn" type="submit">${icon('search')} Ver ${data.length} ofertas</button></form></div><div class="quick-search"><span>UM ATALHO PARA O SEU PRÓXIMO CARRO:</span><button data-quick="max:150000">Até R$ 150 mil ${icon('up')}</button><button data-quick="type:SUV">SUVs para a família ${icon('up')}</button><button data-quick="fuel:Híbrido">${icon('bolt')} Híbridos</button><button data-quick="type:Esportivo">Para sair do comum ${icon('up')}</button></div></div>
+<section class="section wrap"><div class="section-heading"><div><div class="section-kicker">UM NOVO COMEÇO, A CADA ESCOLHA</div><h2>Seu próximo capítulo está aqui.</h2><p>Explore a nossa seleção e imagine os novos caminhos.</p></div><a href="#comprar" class="text-link">Ver todos os veículos ${icon('arrow')}</a></div><div class="cards-grid">${data.slice(0,4).map(card).join('')}</div></section>
+<section class="brand-section wrap"><p class="brand-heading">A sua marca favorita. O seu jeito de dirigir.</p><div class="brand-list">${[['volkswagen','Volkswagen'],['toyota','Toyota'],['honda','Honda'],['bmw','BMW'],['audi','Audi'],['chevrolet','Chevrolet'],['hyundai','Hyundai'],['mercedes-benz','Mercedes-Benz']].map(([file,b])=>`<button data-brand="${b}" aria-label="Buscar ${b}"><img src="assets/${file}.png" alt="${b}" loading="lazy"><span>${b}</span></button>`).join('')}</div></section>
+<section class="section lifestyle"><div class="wrap"><div class="section-heading"><div><div class="section-kicker">MENOS FILTROS. MAIS IDENTIFICAÇÃO.</div><h2>Um carro para o seu momento.</h2></div><span style="color:#8a97a8;font-size:11px">Por onde você quer começar?</span></div><div class="lifestyle-grid">${[['volvo.webp','PARA ESTAR JUNTO','Espaço para<br>novas histórias.','type:SUV'],['bmw.jpg','PARA SENTIR MAIS','A rotina também<br>pode surpreender.','type:Sedã'],['porsche.jpg','PARA IR ALÉM','Seu próximo sonho.<br>Mais perto.','type:Esportivo']].map(([img,k,t,q])=>`<button class="life-card" data-quick="${q}"><img src="assets/${img}" alt="" loading="lazy"><div class="life-copy"><span>${k}</span><h3>${t}</h3>${icon('up')}</div></button>`).join('')}</div></div></section>
+<section class="section wrap"><div class="seller-banner"><div class="seller-copy"><div class="eyebrow">ABRA ESPAÇO PARA O NOVO</div><h2>O seu carro pode ser<br><b>o próximo de alguém.</b></h2><p>Conte a história do seu carro e ajude o próximo dono a encontrar você.</p><a href="#vender" class="btn btn-white">Quero vender meu carro ${icon('up')}</a></div><div class="seller-art"><div class="mini-listing"><img src="assets/jeep.jpg" alt="Anúncio ilustrativo"><div>Jeep Compass<b>R$ 139.900</b></div></div><span class="mini-badge">${icon('check')} Pronto para um novo caminho</span></div></div></section>
+<section class="wrap journey"><div class="journey-grid">${[['search','Encontre do seu jeito','Compare opções, escolha seus favoritos e veja os detalhes que fazem a diferença.'],['chat','Converse com quem vende','Tire suas dúvidas e dê o próximo passo com todas as informações à mão.'],['car','Sua loja também vai mais longe','Uma vitrine digital com a identidade da sua garagem e o seu estoque em destaque.']].map(([i,h,p])=>`<div class="journey-item"><span>${icon(i)}</span><div><h3>${h}</h3><p>${p}</p></div></div>`).join('')}</div></section>`}
+function filtered(p,favs=false){let list=data.filter(c=>(!favs||favorites.includes(c.id))&&(!p.get('brand')||c.brand===p.get('brand'))&&(!p.get('model')||c.model===p.get('model'))&&(!p.get('type')||c.type===p.get('type'))&&(!p.get('fuel')||c.fuel===p.get('fuel'))&&(!p.get('max')||c.price<=+p.get('max'))&&(!p.get('city')||c.city===p.get('city'))&&(!p.get('q')||`${c.brand} ${c.model} ${c.version}`.toLowerCase().includes(p.get('q').toLowerCase())));if(p.get('sort')==='price-asc')list.sort((a,b)=>a.price-b.price);if(p.get('sort')==='price-desc')list.sort((a,b)=>b.price-a.price);if(p.get('sort')==='year')list.sort((a,b)=>b.year-a.year);return list}
+function results(favs=false){const p=params(),list=filtered(p,favs);const checkbox=(key,value,label=value)=>`<label><input type="radio" name="${key}" value="${escape(value)}" ${p.get(key)===value?'checked':''}>${label}</label>`;return `<section class="results-page"><div class="wrap"><div class="breadcrumb"><a href="#inicio">Início</a><span>/</span><span>${favs?'Favoritos':'Comprar carro'}</span></div><div class="results-top"><div><h1 class="page-title">${favs?'Boas escolhas merecem ser salvas.':'O próximo caminho é você quem escolhe.'}</h1><p>${favs?'Seus favoritos, reunidos em um só lugar.':'Encontre um carro que faça sentido para você, no seu tempo.'}</p></div><button class="btn btn-outline" data-save-search>${icon('heart')} Salvar busca</button></div><div class="results-layout"><aside class="filters" id="filters"><form id="filter-form"><div class="filter-header">Filtrar por<button type="button" data-clear-filters>Limpar tudo</button></div><div class="filter-group"><h3>Localização</h3><select name="city" aria-label="Filtrar localização"><option value="">Todo o Brasil</option>${[...new Set(data.map(c=>c.city))].map(city=>`<option ${p.get('city')===city?'selected':''}>${city}</option>`).join('')}</select></div><div class="filter-group"><h3>Marca</h3>${[...new Set(data.map(c=>c.brand))].map(b=>checkbox('brand',b)).join('')}</div><div class="filter-group"><h3>Preço máximo</h3><input name="max" type="number" min="0" step="1000" placeholder="Sem limite" value="${escape(p.get('max')||'')}" aria-label="Filtrar preço máximo"></div><div class="filter-group"><h3>Tipo de carro</h3>${['SUV','Sedã','Esportivo'].map(t=>checkbox('type',t)).join('')}</div><div class="filter-group"><h3>Combustível</h3>${['Flex','Gasolina','Híbrido'].map(f=>checkbox('fuel',f)).join('')}</div><button class="btn" style="width:100%" type="submit">Aplicar filtros ${icon('arrow')}</button></form></aside><div><form class="result-search" id="result-search">${icon('search')}<input name="q" aria-label="Buscar marca ou modelo" placeholder="Qual carro você está procurando?" value="${escape(p.get('q')||'')}"><button class="text-link" type="submit">Buscar</button></form><div class="results-toolbar"><small><b>${list.length}</b> ${list.length===1?'veículo encontrado':'veículos encontrados'} · anúncios ilustrativos</small><button class="btn btn-outline filter-mobile" data-filter-mobile>${icon('sliders')} Filtros</button><select aria-label="Ordenar resultados" id="sort"><option value="">Mais relevantes</option><option value="price-asc" ${p.get('sort')==='price-asc'?'selected':''}>Menor preço</option><option value="price-desc" ${p.get('sort')==='price-desc'?'selected':''}>Maior preço</option><option value="year" ${p.get('sort')==='year'?'selected':''}>Mais novos</option></select></div>${list.length?`<div class="cards-grid results-grid">${list.map(card).join('')}</div>`:`<div class="empty">${icon(favs?'heart':'search')}<h3>${favs?'Seu próximo favorito está por aí.':'Vamos tentar outro caminho?'}</h3><p>${favs?'Toque no coração dos anúncios para reunir os carros de que você mais gosta.':'Não encontramos veículos com essa combinação. Ajuste os filtros para explorar outras opções.'}</p><a class="btn" href="#comprar">Explorar veículos ${icon('arrow')}</a></div>`}</div></div></div></section>`}
+function detail(id){const c=data.find(c=>c.id===id);if(!c)return results();const pct=Math.round((1-c.price/c.ref)*100);const avg=Math.round((c.price+c.ref)/2/100)*100;const below=c.ref-c.price;const initials=c.seller.split(' ').map(x=>x[0]).slice(0,2).join('');const shots=[['50% 50%',1,'Vista dianteira'],['22% 62%',1.6,'Detalhe do farol'],['80% 72%',1.6,'Detalhe da roda'],['50% 35%',1.35,'Detalhe do teto']];const monthly=n=>{const r=.0169;return c.price*.7*r/(1-Math.pow(1+r,-n))};return `<div class="wrap vd"><div class="breadcrumb"><a href="#inicio">Início</a><span>/</span><a href="#comprar">Comprar carro</a><span>/</span><span>${c.brand} ${c.model}</span></div><section class="vd-gallery" aria-label="Fotos"><div class="vd-stage"><img src="assets/${c.image}" alt="Foto ilustrativa de ${c.brand} ${c.model}" width="1000" height="667"><span class="photo-label">${c.tag}</span></div><div class="vd-thumbs">${shots.map(([pos,zoom,label],i)=>`<button type="button" aria-label="${label}" aria-current="${i===0}" data-vd-shot="${pos}|${zoom}"><img src="assets/${c.image}" alt="" style="object-position:${pos};transform:scale(${zoom})" loading="lazy"></button>`).join('')}</div></section><div class="vd-layout"><div><div class="vd-tags">${pct>0?`<span class="vd-tag good">${pct}% abaixo da FIPE</span>`:'<span class="vd-tag">Na média da FIPE</span>'}<span class="vd-tag blue">Loja verificada</span><span class="vd-tag">Laudo cautelar aprovado</span></div><div class="vd-title"><div><h1>${c.brand} ${c.model}</h1><p>${c.version} · ${c.city}</p></div><button class="icon-button photo-favorite ${favorites.includes(c.id)?'is-favorite':''}" style="position:static;border:1px solid var(--line)" data-fav="${c.id}" aria-label="Salvar veículo">${icon('heart')}</button></div><dl class="vd-specs">${[['Ano',c.year+'/'+c.year],['Quilometragem',number(c.km)+' km'],['Câmbio','Automático'],['Combustível',c.fuel],['Cor',c.color],['Final da placa','7']].map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl><section class="vd-block"><h2>Comparação de preço</h2><div class="vd-compare"><div><span>Este anúncio</span><strong>R$ ${number(c.price)}</strong></div><div><span>Média no Comprautos</span><strong>R$ ${number(avg)}</strong></div><div><span>Tabela FIPE (exemplo)</span><strong>R$ ${number(c.ref)}</strong></div></div><div class="vd-meter" style="--w:${Math.min(100,Math.round(c.price/c.ref*100))}%"><i></i></div><p class="vd-note">${below>0?`R$ ${number(below)} abaixo da FIPE e R$ ${number(avg-c.price)} abaixo dos carros iguais anunciados aqui.`:'Preço alinhado com a tabela FIPE.'} Valores de exemplo.</p></section><section class="vd-block"><h2>Itens e opcionais</h2><div class="vd-opts">${['Ar-condicionado digital','Direção assistida','Central multimídia','Câmera de ré','Bancos em couro','Rodas de liga leve','Faróis em LED','Sensor de estacionamento'].map(t=>`<span>${icon('check')}${t}</span>`).join('')}</div></section><section class="vd-block"><h2>Sobre este carro</h2><p class="vd-note">Anúncio demonstrativo. Aqui entra a descrição do vendedor: histórico de revisões, número de donos, motivo da venda e condições de troca.</p></section><section class="vd-block"><div class="vd-seller"><span class="seller-avatar">${initials}</span><div><b>${c.seller}</b><small>${c.city} · anunciante fictício</small><div class="vd-seller-facts"><span><i class="vd-dot"></i>Aberta agora · fecha às 19h</span><span>Responde em média em 15 min</span></div></div><a class="btn btn-outline" href="#comprar">Ver estoque da loja</a></div></section></div><aside class="vd-aside" aria-label="Preço e contato"><div class="vd-price-card"><span class="vd-label">Preço</span><div class="vd-price">R$ ${number(c.price)}</div>${below>0?`<span class="vd-good">R$ ${number(below)} abaixo da FIPE</span>`:''}<button class="btn" data-contact="${c.id}">${icon('chat')} Conversar com a loja</button><button class="btn btn-outline" data-contact="${c.id}">Fazer uma proposta</button><p class="vd-small">Seu telefone só é compartilhado se você quiser.</p><label class="compare-check" style="justify-content:center"><input type="checkbox" data-compare="${c.id}" ${compare.includes(c.id)?'checked':''}> Comparar com outros veículos</label></div><div class="vd-sim"><b>Simular financiamento</b><span class="vd-small">Entrada de 30% · R$ ${number(Math.round(c.price*.3))} · sem cadastro</span><div class="vd-terms" role="group" aria-label="Prazo" data-price="${c.price}"><span class="vd-terms-ind" aria-hidden="true" style="transform:translateX(200%)"></span>${[24,36,48,60].map(n=>`<button type="button" data-vd-months="${n}" aria-pressed="${n===48}">${n}x</button>`).join('')}</div><div class="vd-installment"><span data-vd-label>48 parcelas de</span><strong data-vd-value>R$ ${number(Math.round(monthly(48)))}</strong></div><p class="vd-small">Taxa de exemplo de 1,69% a.m. A taxa real depende da análise de crédito.</p></div><div class="vd-protect"><b>Saia com este carro protegido</b><p>Cotação de proteção veicular da Clube Autos para este modelo, junto com a compra.</p><button class="btn btn-white" data-help>Cotar proteção</button></div></aside></div></div><section class="section lifestyle"><div class="wrap"><div class="section-heading"><div><div class="section-kicker">MAIS POSSIBILIDADES</div><h2>Você também pode gostar.</h2></div><a href="#comprar" class="text-link">Ver todos ${icon('arrow')}</a></div><div class="cards-grid">${data.filter(x=>x.id!==c.id).slice(0,4).map(card).join('')}</div></div></section>`}
+function vdInit(){const m=document.querySelector('.vd-meter');if(m){if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){m.classList.add('is-in');o.disconnect()}},{threshold:.5});o.observe(m)}else m.classList.add('is-in')}}
+let vdRaf;function vdTween(el,from,to){cancelAnimationFrame(vdRaf);const start=performance.now();const step=now=>{const t=Math.min(1,(now-start)/500),e=1-Math.pow(1-t,3);el.textContent='R$ '+number(Math.round(from+(to-from)*e));el.dataset.v=from+(to-from)*e;if(t<1)vdRaf=requestAnimationFrame(step)};vdRaf=requestAnimationFrame(step)}
+document.addEventListener('click',e=>{const shot=e.target.closest('[data-vd-shot]');if(shot&&shot.getAttribute('aria-current')!=='true'){document.querySelectorAll('[data-vd-shot]').forEach(x=>x.setAttribute('aria-current',String(x===shot)));const img=document.querySelector('.vd-stage img');const [pos,zoom]=shot.dataset.vdShot.split('|');img.classList.add('is-leaving');setTimeout(()=>{img.style.transformOrigin=pos;img.style.transform='scale('+zoom+')';img.classList.remove('is-leaving')},220)}const term=e.target.closest('[data-vd-months]');if(term){const box=term.closest('.vd-terms'),price=+box.dataset.price,n=+term.dataset.vdMonths,r=.0169,buttons=[...box.querySelectorAll('button')];buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===term)));box.querySelector('.vd-terms-ind').style.transform='translateX('+buttons.indexOf(term)*100+'%)';document.querySelector('[data-vd-label]').textContent=n+' parcelas de';const out=document.querySelector('[data-vd-value]');const from=+(out.dataset.v||out.textContent.replace(/\D/g,''));vdTween(out,from,price*.7*r/(1-Math.pow(1+r,-n)))}});
+function sell(shops=false){return `<section class="selling-page"><div class="wrap selling-layout"><div class="selling-copy"><div class="eyebrow">${shops?'COMPRAUTOS PARA LOJISTAS':'NOVO DONO. NOVAS HISTÓRIAS.'}</div><h1>${shops?'Sua garagem.<br>Uma vitrine<br><strong>sem fronteiras.</strong>':'Seu próximo passo<br>começa com<br><strong>um bom anúncio.</strong>'}</h1><p>${shops?'Dê à sua loja uma presença digital à altura do seu estoque. Mais organização, uma identidade própria e novas conversas.':'O carro que fez parte da sua história pode fazer parte da história de alguém. Vamos apresentar vocês.'}</p><div class="selling-steps">${(shops?[['Sua identidade em destaque','Uma loja virtual com suas cores, sua marca e seu jeito de vender.'],['Seu estoque, organizado','Reúna anúncios, fotos e informações em uma única vitrine.'],['Novas conversas, novos negócios','Aproxime sua garagem de quem procura o próximo carro.']]:[['Conte um pouco do seu carro','Modelo, versão, quilometragem e os detalhes que fazem a diferença.'],['Mostre o que ele tem de melhor','Boas fotos ajudam o próximo dono a se imaginar ao volante.'],['Dê espaço para uma nova história','Converse com interessados e encontre o seu próximo negócio.']]).map(([h,p],i)=>`<div class="selling-step"><span>0${i+1}</span><div><b>${h}</b><p>${p}</p></div></div>`).join('')}</div></div><div class="selling-form"><span class="preview-tag">Prévia da nova experiência</span><h2>${shops?'Vamos apresentar sua loja?':'Vamos começar pelo seu carro?'}</h2><p>${shops?'Conheça a proposta de uma vitrine com a sua identidade.':'É só o primeiro passo para um novo caminho.'}</p><form class="contact-form" id="sell-form"><label>${shops?'Nome da loja':'Qual carro você quer anunciar?'}<input required name="vehicle" placeholder="${shops?'Como a sua garagem se chama?':'Ex.: Jeep Compass Longitude 2023'}"></label><div class="form-row"><label>Seu nome<input required name="name" autocomplete="given-name" placeholder="Como podemos chamar você?"></label><label>WhatsApp<input required name="phone" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999" minlength="10"></label></div><label>Seu e-mail<input required type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com"></label><button class="btn" type="submit">${shops?'Conhecer a nova vitrine':'Continuar meu anúncio'} ${icon('arrow')}</button><small>Esta é uma simulação de apresentação. Os dados não serão enviados nem armazenados.</small></form></div></div></section>`}
+function comparison(){if(compare.length<2){toast('Selecione pelo menos 2 veículos para comparar.');return}const cars=compare.map(id=>data.find(c=>c.id===id));modal(`<div class="eyebrow">ESCOLHA COM MAIS CLAREZA</div><h2 id="modal-title">Lado a lado. Do seu jeito.</h2><p class="intro">Compare os detalhes antes de dar o próximo passo.</p><table class="compare-table"><tbody><tr><th>Seu próximo carro</th>${cars.map(c=>`<td><img src="assets/${c.image}" alt="${c.brand} ${c.model}"><b>${c.brand} ${c.model}</b></td>`).join('')}</tr>${[['Preço',c=>'R$ '+number(c.price)],['Ano',c=>c.year],['Quilometragem',c=>number(c.km)+' km'],['Combustível',c=>c.fuel],['Câmbio',()=> 'Automático'],['Localização',c=>c.city]].map(([label,value])=>`<tr><th>${label}</th>${cars.map(c=>`<td>${value(c)}</td>`).join('')}</tr>`).join('')}<tr><th></th>${cars.map(c=>`<td><a class="btn" href="#veiculo/${c.id}" data-close>Ver detalhes ${icon('arrow')}</a></td>`).join('')}</tr></tbody></table><p class="price-note">Todos os dados desta comparação são ilustrativos.</p>`,true)}
+function contact(id){const c=data.find(c=>c.id===id);modal(`<span class="modal-icon">${icon('chat')}</span><h2 id="modal-title">Uma boa conversa<br>é o próximo passo.</h2><p class="intro">Seu interesse em ${c.brand} ${c.model}, direto ao anunciante.</p><form id="contact-form" class="contact-form"><div class="form-row"><label>Seu nome<input name="name" required placeholder="Como podemos chamar você?"></label><label>Seu e-mail<input type="email" name="email" required placeholder="voce@exemplo.com"></label></div><label>Sua mensagem<textarea required name="message">Olá! Tenho interesse no ${c.brand} ${c.model}. Podemos conversar?</textarea></label><button class="btn">Enviar interesse ${icon('arrow')}</button><small>Envio demonstrativo. Nenhuma mensagem será enviada ao anunciante.</small></form>`)}
+function financing(id){const c=data.find(c=>c.id===id);modal(`<span class="modal-icon">${icon('car')}</span><h2 id="modal-title">Planeje seu próximo passo.</h2><p class="intro">Visualize uma divisão simples do valor do veículo. Esta conta não representa uma oferta de financiamento.</p><form id="finance-form" class="contact-form" data-price="${c.price}"><label>Valor do veículo<input disabled value="R$ ${number(c.price)}"></label><div class="form-row"><label>Entrada (R$)<input name="entry" type="number" value="${Math.round(c.price*.3)}" min="0" max="${c.price}" required></label><label>Em quantas vezes?<select name="months"><option value="24">24 meses</option><option value="36">36 meses</option><option value="48" selected>48 meses</option><option value="60">60 meses</option></select></label></div><button class="btn">Visualizar divisão ${icon('arrow')}</button><div id="finance-result"></div><small>Conta ilustrativa sem juros, IOF, tarifas ou análise de crédito. O custo real de um financiamento será diferente.</small></form>`)}
+function render(scroll=true){const r=route();document.querySelector('nav').classList.remove('mobile-open');if(document.querySelector('#modal').open)closeModal();app.innerHTML=r.startsWith('veiculo/')?detail(+r.split('/')[1]):r==='comprar'?results():r==='favoritos'?results(true):r==='vender'?sell():r==='lojistas'?sell(true):home();document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===r||(r.startsWith('veiculo/')&&a.dataset.nav==='comprar')));updateFavorites();updateCompare();document.title=(r.startsWith('veiculo/')?'Seu próximo carro':r==='comprar'?'Encontre seu próximo carro':r==='favoritos'?'Seus favoritos':'Seu próximo capítulo')+' | Comprautos';updateLinks();window.comprautosSEO?.update();if(scroll)window.scrollTo({top:0,behavior:'instant'});vdInit()}
+function cleanParams(obj){return Object.fromEntries(Object.entries(obj).filter(([,v])=>v!==''))}
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;if(b.hasAttribute('data-fav'))toggleFavorite(+b.dataset.fav);if(b.hasAttribute('data-quick')){const [k,v]=b.dataset.quick.split(':');go('comprar',{[k]:v})}if(b.hasAttribute('data-brand'))go('comprar',{brand:b.dataset.brand});if(b.hasAttribute('data-clear-filters'))go(route()==='favoritos'?'favoritos':'comprar');if(b.hasAttribute('data-filter-mobile'))document.querySelector('#filters').classList.toggle('is-open');if(b.hasAttribute('data-compare-open'))comparison();if(b.hasAttribute('data-clear-compare')){compare=[];updateCompare()}if(b.hasAttribute('data-contact'))contact(+b.dataset.contact);if(b.hasAttribute('data-finance'))financing(+b.dataset.finance);if(b.hasAttribute('data-close')||b.classList.contains('modal-close'))closeModal();if(b.hasAttribute('data-save-search')){try{localStorage.setItem('comprautos-concept-search',location.pathname+location.search)}catch{}toast('Busca salva neste navegador. Você pode voltar quando quiser.')}if(b.hasAttribute('data-location'))modal(`<span class="modal-icon">${icon('pin')}</span><h2 id="modal-title">Por onde você quer começar?</h2><p class="intro">Escolha uma região para explorar as ofertas demonstrativas.</p><div class="location-options">${['Todo o Brasil','São Paulo, SP','Campinas, SP','Santos, SP'].map(city=>`<button data-city="${city}">${icon('pin')}${city}</button>`).join('')}</div>`);if(b.hasAttribute('data-city')){currentLocation=b.dataset.city;document.querySelectorAll('.location-name').forEach(el=>el.textContent=currentLocation);closeModal();go('comprar',currentLocation==='Todo o Brasil'?{}:{city:currentLocation})}if(b.hasAttribute('data-login'))modal(`<span class="modal-icon">${icon('user')}</span><h2 id="modal-title">Seu próximo capítulo<br>começa com você.</h2><p class="intro">Entre na experiência demonstrativa e continue explorando.</p><form id="login-form" class="contact-form"><label>Como podemos chamar você?<input required name="name" placeholder="Seu primeiro nome" maxlength="30"></label><button class="btn">Entrar na demonstração ${icon('arrow')}</button><small>Não é necessário informar senha. Esta é uma simulação do novo visual.</small></form><div class="dialog-links">Explore os veículos, salve seus favoritos e conheça a nova experiência Comprautos.</div>`);if(b.hasAttribute('data-help'))modal(`<span class="modal-icon">${icon('chat')}</span><h2 id="modal-title">Vamos conversar?</h2><p class="intro">Na proposta final, este espaço reúne suporte, orientações para comprar e atendimento a lojistas.</p><a class="btn" href="#lojistas" data-close>Conhecer a experiência para lojistas ${icon('arrow')}</a>`);if(b.id==='menu-toggle')document.querySelector('nav').classList.toggle('mobile-open');if(b.id==='presentation'){document.querySelector('#concept-bar').hidden=true;document.querySelector('#presentation-exit').hidden=false;toast('Modo apresentação ativado. Boa apresentação!')}if(b.id==='presentation-exit'){document.querySelector('#concept-bar').hidden=false;b.hidden=true}});
+document.addEventListener('change',e=>{if(e.target.matches('[data-compare]')){const id=+e.target.dataset.compare;if(e.target.checked){if(compare.length>=3){e.target.checked=false;toast('Compare até 3 veículos por vez.');return}compare.push(id)}else compare=compare.filter(x=>x!==id);updateCompare()}if(e.target.id==='sort'){const p=params();p.set('sort',e.target.value);go(route(),cleanParams(Object.fromEntries(p)))}if(e.target.matches('#home-search select[name=brand]')){const brand=e.target.value;document.querySelector('#home-search select[name=model]').innerHTML='<option value="">Todos os modelos</option>'+[...new Set(data.filter(c=>!brand||c.brand===brand).map(c=>c.model))].map(m=>`<option>${m}</option>`).join('')}if(e.target.closest('#home-search')){const p=new URLSearchParams(new FormData(document.querySelector('#home-search')));const count=filtered(p).length;document.querySelector('#home-search button[type=submit]').innerHTML=icon('search')+` Ver ${count} oferta${count===1?'':'s'}`}});
+document.addEventListener('submit',e=>{e.preventDefault();const form=e.target,values=Object.fromEntries(new FormData(form));if(form.id==='home-search'){go('comprar',cleanParams(values))}if(form.id==='filter-form'){const p=params();const v=cleanParams(values);if(p.get('q'))v.q=p.get('q');if(p.get('sort'))v.sort=p.get('sort');go(route(),v)}if(form.id==='result-search'){const p=params();if(values.q)p.set('q',values.q);else p.delete('q');go(route(),Object.fromEntries(p))}if(form.id==='contact-form'||form.id==='sell-form'){modal(`<span class="modal-icon">${icon('check')}</span><h2 id="modal-title">Pronto, ${escape(values.name)}.</h2><p class="intro">${form.id==='contact-form'?'Seu interesse foi simulado com sucesso. Na versão final, a conversa continuará com o anunciante.':'Este é o início de um novo caminho. Na versão final, você continuará com os detalhes e as fotos do seu anúncio.'}</p><p class="price-note">Demonstração concluída. Nenhum dado foi enviado ou armazenado.</p><button class="btn" data-close>Continuar explorando ${icon('arrow')}</button>`)}if(form.id==='login-form'){userName=values.name;document.querySelector('.login-button span').textContent=userName;closeModal();toast(`Bem-vindo, ${userName}. Encontre seu próximo caminho.`)}if(form.id==='finance-form'){const balance=+form.dataset.price-+values.entry;document.querySelector('#finance-result').innerHTML=`<div style="padding:20px;background:#eff4fb;border-radius:9px"><small>DIVISÃO ILUSTRATIVA DO SALDO, SEM JUROS</small><div class="car-price">${money(Math.round(balance/+values.months))}<small>/ mês</small></div><p style="font-size:10px;color:#7f8d9f">Saldo de R$ ${number(balance)} dividido em ${escape(values.months)} meses.</p></div>`}});
+document.querySelector('#modal').addEventListener('click',e=>{if(e.target.id==='modal'){const rect=e.target.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)closeModal()}});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target||a.hasAttribute('download'))return;const next=new URL(a.href,location.href);if(next.origin!==location.origin||!next.pathname.startsWith(basePath)||next.hash)return;const path=decodeURIComponent(next.pathname.slice(basePath.length)).replace(/\/$/,'')||'inicio';if(!knownRoute.test(path))return;e.preventDefault();history.pushState(null,'',next.pathname+next.search);renderRoute()});
+window.addEventListener('popstate',renderRoute);
+window.addEventListener('hashchange',()=>{if(legacy()){const old=legacy();history.replaceState(null,'',routeURL(old.split('?')[0],Object.fromEntries(new URLSearchParams(old.split('?')[1]||''))));renderRoute()}});
+if(legacy()){const old=legacy();history.replaceState(null,'',routeURL(old.split('?')[0],Object.fromEntries(new URLSearchParams(old.split('?')[1]||''))))}
+render();
 })();
